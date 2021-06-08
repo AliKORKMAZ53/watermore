@@ -21,6 +21,8 @@ import com.example.tektek.utils.Constants;
 import com.example.tektek.viewmodel.DbViewModel;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
+import org.threeten.bp.OffsetDateTime;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -251,7 +253,10 @@ public class LauncherActivity extends AppCompatActivity {
                 spinnerweight.setSelection(weightArrayAdapter.getPosition( Integer.toString(response.weight)));
                 spinnerheight.setSelection(heightArrayAdapter.getPosition( Integer.toString(response.height)));
                 spinnerage.setSelection(ageArrayAdapter.getPosition(Integer.toString(response.age)));
-                user.drunk=response.drunk;//bu biiiiiiiiiiiiiiiiiiiiiiiiiiir
+                if(response.date.getDayOfMonth()== OffsetDateTime.now().getDayOfMonth()){
+                    user.drunk=response.drunk;
+                }
+
                 if(response.gender==Constants.GENDER_MALE){
                     radioButtonMale.setChecked(true);
                     user.gender=Constants.GENDER_MALE;

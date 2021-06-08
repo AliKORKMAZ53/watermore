@@ -12,11 +12,15 @@ public class Calculations {
         return (double) (weight/(doubleheight*doubleheight)); // kg/m2
     }
 
-    public int idealMinWeight(int height){
-        return (int)(18.5)*(height/100)*(height/100);
+    public int idealMinWeight(int height){ //double yap
+        double dheight=height;
+        double calc=(18.5)*(dheight/100)*(dheight/100);
+        return ((int) calc);
     }
-    public int idealMaxWeight(int height){
-        return (int)(25)*(height/100)*(height/100);
+    public int idealMaxWeight(int height){  //double yap
+        double dheight=height;
+        double calc=(25)*(dheight/100)*(dheight/100);
+        return ((int)calc);
     }
 
     public int bloodRate(int gender,int weight){

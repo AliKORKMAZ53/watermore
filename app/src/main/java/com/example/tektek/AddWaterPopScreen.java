@@ -1,6 +1,6 @@
 package com.example.tektek;
 
-import android.app.Activity;
+
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -11,9 +11,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
+
 
 import com.example.tektek.database.UserTable;
 import com.example.tektek.utils.TiviTypeConverters;
@@ -43,10 +44,15 @@ public class AddWaterPopScreen extends AppCompatActivity {
         dbViewModel.getLastDate().observe(this, response->{
             if(response!=null){
                 isLastRecordToday= OffsetDateTime.now().getDayOfMonth()==
-                        TiviTypeConverters.toOffsetDateTime(dbViewModel.getLastDate().getValue()).getDayOfMonth();
+                        TiviTypeConverters.toOffsetDateTime(response).getDayOfMonth();
 
+            }else {
+                Toast.makeText(this,"lastdate response is empty",Toast.LENGTH_SHORT).show();
             }
 
+        });
+        dbViewModel.getLastRecord().observe(this,response->{
+            userTable=response;
         });
 
 
@@ -231,10 +237,9 @@ public class AddWaterPopScreen extends AppCompatActivity {
         if(isLastRecordToday){
             dbViewModel.update(addwater);
         }else{
-            userTable=dbViewModel.getLastRecord().getValue();
             userTable.drunk=addwater;
             dbViewModel.insertOne(userTable);
-
+            //new record inserting doesnt work
         }
         AddWaterPopScreen.this.finish();
     }

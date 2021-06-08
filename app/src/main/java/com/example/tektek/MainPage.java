@@ -1,26 +1,20 @@
 package com.example.tektek;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.tektek.database.UserTable;
 import com.example.tektek.utils.Constants;
+import com.example.tektek.utils.TiviTypeConverters;
 import com.example.tektek.viewmodel.DbViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import org.threeten.bp.OffsetDateTime;
 
 public class MainPage extends AppCompatActivity {
 
@@ -40,20 +34,17 @@ public class MainPage extends AppCompatActivity {
     }
     public void goGraphicScreen(){
         Intent intent=new Intent(this,GraphicActivity.class);
-        //if we cant make graphic activity work with viewmodel observe
-        // intent.putStringArrayListExtra("dates", dates);
-        //intent.putIntegerArrayListExtra("weight",weights);
         startActivity(intent);
     }
     public void setReminderScreen(){
         Intent intent = new Intent(this, ReminderScreen.class);
         startActivity(intent);
     }
+    Boolean isLastRecordToday=false;
     TextView bmiText;
     TextView goalText;
     TextView droppercentage;
-    ArrayList<String> dates;
-    ArrayList<Integer> weights=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,25 +61,36 @@ public class MainPage extends AppCompatActivity {
         droppercentage=findViewById(R.id.droppercentage);
 
         DbViewModel dbViewModel=new DbViewModel(this.getApplication());
+        dbViewModel.getLastDate().observe(this, response->{
+            if(response!=null){
+                isLastRecordToday= OffsetDateTime.now().getDayOfMonth()==
+                        TiviTypeConverters.toOffsetDateTime(dbViewModel.getLastDate().getValue()).getDayOfMonth();
+
+            }
+
+        });
         ImageView gender=findViewById(R.id.imageView13); //imageview13 -> gender view
         dbViewModel.getLastRecord().observe(this,response->{
-          if(response!=null){
-              String trim = String.valueOf(((double) response.drunk/1000)/response.goal);
-              int stringsize=trim.length();
+          if(response!=null) {
+              String trim = String.valueOf(((double) response.drunk / 1000) / response.goal);
+              int stringsize = trim.length();
+              if(isLastRecordToday){
 
-              if(stringsize>3){
-                  trim=trim.substring(2,4);
-              }else if(stringsize==3){
-                  trim=trim.substring(2,3);  //KÜÇÜK DEĞERLERDE HALA SORUN VAR %09 GÖRÜNDÜ AQ
-              }else{
-                  trim=String.valueOf(0);
+              if (stringsize > 3) {
+                  trim = trim.substring(2, 4);
+              } else if (stringsize == 3) {
+                  trim = trim.substring(2, 3);  //KÜÇÜK DEĞERLERDE HALA SORUN VAR %09 GÖRÜNDÜ AQ
+              } else {
+                  trim = String.valueOf(0);
               }
-              if(((double)response.drunk/1000)>response.goal){
+              if (((double) response.drunk / 1000) > response.goal) {
                   droppercentage.setText("%100");
-              }else{
-                  droppercentage.setText("%"+trim);
+              } else {
+                  droppercentage.setText("%" + trim);
               }
-
+          }else{
+                  droppercentage.setText("%0");
+              }
               bmiText.setText(String.valueOf(response.bmi)+" "+ getResources().getString(R.string.bmishort));
               goalText.setText(String.valueOf(String.format("%.2f", response.goal))+" L");
               if(response.gender== Constants.GENDER_MALE){
@@ -102,15 +104,6 @@ public class MainPage extends AppCompatActivity {
 
         });
 
-        //if we cant make graphic activity work with viewmodel observe
-        /*dbViewModel.getLastSevenRecords().observe(this,response->{
-            for (int i=0;i<response.size();i++){
-                weights.add(response.get(i).weight);
-            }
-        });
-        dbViewModel.getLastSevenRecordsDate().observe(this,response->{
-            dates=(ArrayList<String>) response;
-        });*/
 
 
         graphicshowbutton.setOnClickListener(view->{

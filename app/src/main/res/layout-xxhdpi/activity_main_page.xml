@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.607" />
 
     <ImageView
-        android:id="@+id/weatherbutton"
+        android:id="@+id/welcomeView"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:background="@drawable/weaterbutton"
@@ -57,10 +57,10 @@
         android:text="Last Pussy Slayer"
         android:textColor="@color/mainscreentextcolor"
         android:textSize="11dp"
-        app:layout_constraintBottom_toBottomOf="@+id/weatherbutton"
-        app:layout_constraintEnd_toEndOf="@+id/weatherbutton"
-        app:layout_constraintStart_toStartOf="@+id/weatherbutton"
-        app:layout_constraintTop_toTopOf="@+id/weatherbutton"
+        app:layout_constraintBottom_toBottomOf="@+id/welcomeView"
+        app:layout_constraintEnd_toEndOf="@+id/welcomeView"
+        app:layout_constraintStart_toStartOf="@+id/welcomeView"
+        app:layout_constraintTop_toTopOf="@+id/welcomeView"
         app:layout_constraintVertical_bias="0.377" />
 
     <TextView
@@ -71,11 +71,11 @@
         android:text="@string/welcome"
         android:textColor="@color/mainscreentextcolor"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/weatherbutton"
-        app:layout_constraintEnd_toEndOf="@+id/weatherbutton"
+        app:layout_constraintBottom_toBottomOf="@+id/welcomeView"
+        app:layout_constraintEnd_toEndOf="@+id/welcomeView"
         app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="@+id/weatherbutton"
-        app:layout_constraintTop_toTopOf="@+id/weatherbutton"
+        app:layout_constraintStart_toStartOf="@+id/welcomeView"
+        app:layout_constraintTop_toTopOf="@+id/welcomeView"
         app:layout_constraintVertical_bias="0.161" />
 
     <ImageView
@@ -83,11 +83,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/man"
-        app:layout_constraintBottom_toBottomOf="@+id/weatherbutton"
-        app:layout_constraintEnd_toEndOf="@+id/weatherbutton"
+        app:layout_constraintBottom_toBottomOf="@+id/welcomeView"
+        app:layout_constraintEnd_toEndOf="@+id/welcomeView"
         app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="@+id/weatherbutton"
-        app:layout_constraintTop_toTopOf="@+id/weatherbutton"
+        app:layout_constraintStart_toStartOf="@+id/welcomeView"
+        app:layout_constraintTop_toTopOf="@+id/welcomeView"
         app:layout_constraintVertical_bias="0.700
 " />
 
@@ -124,7 +124,7 @@
         app:layout_constraintVertical_bias="0.872" />
 
     <ImageView
-        android:id="@+id/damlacık"
+        android:id="@+id/damlacik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/drop"
@@ -139,11 +139,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/plus"
-        app:layout_constraintBottom_toBottomOf="@+id/damlacık"
-        app:layout_constraintEnd_toEndOf="@+id/damlacık"
+        app:layout_constraintBottom_toBottomOf="@+id/damlacik"
+        app:layout_constraintEnd_toEndOf="@+id/damlacik"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/damlacık"
-        app:layout_constraintTop_toTopOf="@+id/damlacık"
+        app:layout_constraintStart_toStartOf="@+id/damlacik"
+        app:layout_constraintTop_toTopOf="@+id/damlacik"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView

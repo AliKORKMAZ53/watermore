@@ -1,6 +1,7 @@
 package com.example.tektek.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +20,10 @@ import java.util.List;
 
 public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHolder>{
     private Context context;
-    List<LineData> lineDataList;
-    public List<Description> descriptions=new ArrayList<>();
-
+    private List<LineData> lineDataList;
+    List<Description> descriptions=new ArrayList<>();
+    ArrayList<String> descriptionsStrings=new ArrayList<>();
+    ArrayList<String> titleText=new ArrayList<>();
 
     public void setLineDataList(List<LineData> lineDataList) {
         this.lineDataList = lineDataList;
@@ -31,7 +33,16 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
 
     public GraphicAdapter(Context context){
         this.context=context;
-
+        titleText.add("Weight - Time");
+        titleText.add("Water Drunk - Time");
+        descriptionsStrings.add("Kilogram - Day of Month");
+        descriptionsStrings.add("Milliliter - Day of Month");
+        Description descriptionWeight=new Description();
+        Description descriptionDrunk=new Description();
+        descriptionWeight.setText(descriptionsStrings.get(0));
+        descriptionDrunk.setText(descriptionsStrings.get(1));
+        descriptions.add(descriptionWeight);
+        descriptions.add(descriptionDrunk);
     }
 
     @NonNull
@@ -45,8 +56,12 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.lineChart.setData(lineDataList.get(position));
+        holder.lineChart.setDescription(descriptions.get(position));
+        holder.titleText.setText(titleText.get(position));
+        holder.lineChart.setBackgroundColor(Color.LTGRAY);
+        holder.lineChart.animateY(1000);
         holder.lineChart.invalidate();
-        holder.titleText.setText("Grafikss");
+
     }
 
     @Override

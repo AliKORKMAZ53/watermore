@@ -5,6 +5,7 @@
     android:id="@+id/middlescreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".LauncherActivity">
 
     <View
@@ -28,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/__bg__iphone_x__xs__11_pro___11"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.16" />
 
     <ImageView
         android:id="@+id/burger"
@@ -64,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.765"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/__bg__iphone_x__xs__11_pro___11"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.16" />
 
     <ImageView
         android:id="@+id/boycu"

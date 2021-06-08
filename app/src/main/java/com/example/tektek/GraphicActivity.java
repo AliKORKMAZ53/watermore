@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,83 +32,78 @@ import java.util.List;
 
 public class GraphicActivity extends AppCompatActivity {
 
-//INTENT ILE MAINACTIVITYDEN GONDER
-    //LineChart lineChart;
-    //ArrayList<String> dates;
-    //List<UserTable> userTables;
-    //ArrayList<Integer> userWeights;
+
     List<Entry> entries=new ArrayList<>();
     List<Entry> entries2=new ArrayList<>();
-    List<LineDataSet> lineDataSets=new ArrayList<>();
+    List<Entry> entries3=new ArrayList<>();
+    List<Entry> entries4=new ArrayList<>();
+
     List<LineData> listLineData=new ArrayList<>();
     DbViewModel dbViewModel;
-    //LineDataSet lineDataSet;
-    //LineData lineData;
+
     RecyclerView recyclerView;
     GraphicAdapter graphicAdapter;
-    //TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphic);
         recyclerView=findViewById(R.id.recyclerView);
-        //dates=new ArrayList<>();
-        //userTables=new ArrayList<>();
-        //entries=new ArrayList<>();
+
         Utils.init(getApplicationContext());
         dbViewModel=new DbViewModel(getApplication());
         dbViewModel.getLastSevenRecords().observe(this,responses->{
+            if(responses!=null){
 
             for (int iv=0;iv<responses.size();iv++) {
                 entries.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).weight));
+                entries2.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).drunk));
+                entries3.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).idealminweight));
+                entries4.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).idealmaxweight));
+                Log.d("count","entryLOOP");
             }
-            for (int iv=0;iv<responses.size();iv++) {
-                entries2.add(new Entry((responses.get(iv).date).getDayOfMonth(),responses.get(iv).drunk));
-            }
-            lineDataSets.add(new LineDataSet(entries,"Weight"));
-            lineDataSets.add(new LineDataSet(entries2,"Drunk"));
-            lineDataSets.get(0).setColor(Color.MAGENTA);
-            lineDataSets.get(1).setColor(Color.RED);
-            listLineData.add(new LineData(lineDataSets.get(0)));
-            listLineData.add(new LineData(lineDataSets.get(1)));
+
+            LineData drunklineData=new LineData();
+            LineData minmaxWeightlineData=new LineData();
+
+            LineDataSet drunk=new LineDataSet(entries2,"Drunk");
+            LineDataSet weg=new LineDataSet(entries,"Weight");
+            LineDataSet minweg=new LineDataSet(entries3,"Minimum Weight");
+            LineDataSet maxweg=new LineDataSet(entries4,"Maximum Weight");
+
+            drunk.setValueTextSize(11);
+            drunk.setColor(Color.parseColor("#ff0000"));
+            drunk.setCircleColor(Color.BLACK);
+            drunk.setCircleHoleColor(Color.RED);
+
+            weg.setValueTextSize(11);
+            weg.setColor(Color.CYAN);
+            weg.setCircleColor(Color.BLACK);
+            weg.setCircleHoleColor(Color.RED);
+
+
+            drunklineData.addDataSet(drunk);
+
+            minmaxWeightlineData.addDataSet(weg);
+            minmaxWeightlineData.addDataSet(minweg);
+            minmaxWeightlineData.addDataSet(maxweg);
+
+              //  if(responses.size()==entries.size()){
+                    listLineData.add(drunklineData);
+                    listLineData.add(minmaxWeightlineData);
+                    graphicAdapter.setLineDataList(listLineData);
+                graphicAdapter.notifyDataSetChanged();
+
+             //   }
 
 
 
-            graphicAdapter.setLineDataList(listLineData);
+    }
 
-            graphicAdapter.notifyDataSetChanged();
+
         });
-       // Intent i=getIntent();
-       // dates= i.getStringArrayListExtra("dates");
-       // userWeights= i.getIntegerArrayListExtra("weight");
 
-        //lineChart=findViewById(R.id.lineChart);
-        //textView=findViewById(R.id.deneme);
-
-       // for (int iv=0;iv<userWeights.size();iv++) {
-            //   textView.append(TiviTypeConverters.toOffsetDateTime(dates.get(iv)).getDayOfMonth()
-            //         +String.valueOf(userWeights.get(iv))); //this gives error sometime
-
-       //     entries.add(new Entry(TiviTypeConverters.toOffsetDateTime(dates.get(iv)).getDayOfMonth(),userWeights.get(iv)));
-
-     //   }
-
-
-
-        /*    lineDataSet=new LineDataSet(entries,"Weight");
-            lineDataSet.setColor(Color.MAGENTA);
-            lineDataSet.setValueTextColor(Color.DKGRAY);
-            Description description=new Description();
-            description.setText("Time");
-            lineChart.setDescription(description);
-            lineData = new LineData(lineDataSet);*/
-            //lineChart.setData(lineData);
-
-            //lineChart.animateY(800);
-            //lineChart.invalidate();
-            //lineDataSet.notifyDataSetChanged();
-
-            initRecyclerView();
+        initRecyclerView();
     }
 
     private void initRecyclerView() {

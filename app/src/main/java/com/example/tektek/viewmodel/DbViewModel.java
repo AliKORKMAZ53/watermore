@@ -22,7 +22,7 @@ public class DbViewModel extends ViewModel {
     private LiveData<UserTable> oneTable;
     private LiveData<List<UserTable>> multipleRecords;
     private LiveData<List<String>> multipleRecordsDate;
-    private LiveData<List<LineData>> listLineData;
+
 
     public DbViewModel(Application application){
         this.localRepository=new LocalRepository(application);
@@ -33,34 +33,16 @@ public class DbViewModel extends ViewModel {
 
     }
 
-    List<Entry> entries;
-    List<Entry> entries2;
-    List<LineDataSet> lineDataSets;
+
     public LiveData<List<UserTable>> getLastSevenRecords(){
         return multipleRecords;
     }
     public LiveData<List<String>> getLastSevenRecordsDate() {
         return multipleRecordsDate;
-    }//NOT NEEDED ANYMORE
+    }
 
 
-   /* public LiveData<List<LineData>> getDatesAndRecords(){
-        multipleRecords=getLastSevenRecords();
-        for (int iv=0;iv<multipleRecords.getValue().size();iv++) {
-            entries.add(new Entry(multipleRecords.getValue().get(iv).date.getDayOfMonth(),multipleRecords.getValue().get(iv).weight));
-        }
-        for (int iv=0;iv<multipleRecords.getValue().size();iv++) {
-            entries2.add(new Entry((multipleRecords.getValue().get(iv).date).getDayOfMonth(),multipleRecords.getValue().get(iv).drunk));
-        }
-        lineDataSets.add(new LineDataSet(entries,"Weight"));
-        lineDataSets.add(new LineDataSet(entries2,"Drunk"));
-        lineDataSets.get(0).setColor(Color.MAGENTA);
-        lineDataSets.get(1).setColor(Color.RED);
-        listLineData.getValue().get(0).addDataSet(lineDataSets.get(0));
-        listLineData.getValue().get(1).addDataSet(lineDataSets.get(1));
-        return listLineData;
 
-    }*/
 
     public LiveData<String> getLastDate(){
         return lastDate;

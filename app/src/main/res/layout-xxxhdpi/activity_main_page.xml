@@ -11,14 +11,14 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/damla"
-        android:layout_width="137dp"
-        android:layout_height="186dp"
+        android:layout_width="115dp"
+        android:layout_height="158dp"
         android:background="@drawable/gif15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/droppercentage"
@@ -122,7 +122,7 @@
         app:layout_constraintVertical_bias="0.872" />
 
     <ImageView
-        android:id="@+id/damlacık"
+        android:id="@+id/damlacik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/drop"
@@ -137,11 +137,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/plus"
-        app:layout_constraintBottom_toBottomOf="@+id/damlacık"
-        app:layout_constraintEnd_toEndOf="@+id/damlacık"
+        app:layout_constraintBottom_toBottomOf="@+id/damlacik"
+        app:layout_constraintEnd_toEndOf="@+id/damlacik"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/damlacık"
-        app:layout_constraintTop_toTopOf="@+id/damlacık"
+        app:layout_constraintStart_toStartOf="@+id/damlacik"
+        app:layout_constraintTop_toTopOf="@+id/damlacik"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -278,10 +278,10 @@
         android:background="@drawable/bmirec"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.649" />
+        app:layout_constraintVertical_bias="0.685" />
 
     <ImageView
         android:layout_width="38dp"
@@ -335,7 +335,7 @@
         app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.649" />
+        app:layout_constraintVertical_bias="0.683" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -393,7 +393,7 @@
         app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintVertical_bias="0.882" />
 
     <Button
         android:id="@+id/updatevalues"
@@ -453,7 +453,7 @@
         app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintVertical_bias="0.882" />
 
     <TextView
         android:id="@+id/textView7"
