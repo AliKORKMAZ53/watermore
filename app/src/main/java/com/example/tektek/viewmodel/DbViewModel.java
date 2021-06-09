@@ -32,6 +32,9 @@ public class DbViewModel extends ViewModel {
         multipleRecordsDate=localRepository.getLastSevenRecordDate();
 
     }
+    public void replaceLastRecord(UserTable userTable){
+        localRepository.replaceLastRecord(userTable);
+    }
 
 
     public LiveData<List<UserTable>> getLastSevenRecords(){

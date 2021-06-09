@@ -41,18 +41,16 @@ public class AddWaterPopScreen extends AppCompatActivity {
         //Database and time stuff
         AndroidThreeTen.init(this);
         dbViewModel=new DbViewModel(getApplication());
-        dbViewModel.getLastDate().observe(this, response->{
+
+        dbViewModel.getLastRecord().observe(this,response->{
             if(response!=null){
+                userTable=response;
                 isLastRecordToday= OffsetDateTime.now().getDayOfMonth()==
-                        TiviTypeConverters.toOffsetDateTime(response).getDayOfMonth();
+                        (response.date).getDayOfMonth();
 
             }else {
                 Toast.makeText(this,"lastdate response is empty",Toast.LENGTH_SHORT).show();
             }
-
-        });
-        dbViewModel.getLastRecord().observe(this,response->{
-            userTable=response;
         });
 
 

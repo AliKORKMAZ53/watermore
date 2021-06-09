@@ -37,10 +37,11 @@ public class LauncherActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+//İLK SEFERİNDE DEĞERLER GİRİLMEYİNCE HATA VERİLMESİ GEREKİYOR
     UserTable user=new UserTable();
     UserTable lastUserRecord =new UserTable();
     Calculations calculations;
+    Boolean isLastRecordToday;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,8 @@ public class LauncherActivity extends AppCompatActivity {
         lastUserRecord.age=0;
         lastUserRecord.gender=0;
         lastUserRecord.temperature=0;
+        isLastRecordToday=false; //THIS IS A TRIAL OF DEFAULT VALUE - REVIEW ALL THE CASES PLS
+
 
         DbViewModel dbViewModel=new DbViewModel(this.getApplication());
         calculations=new Calculations();
@@ -209,51 +212,74 @@ public class LauncherActivity extends AppCompatActivity {
 
         //button animasyonu
         save=(Button) findViewById(R.id.save);
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(LauncherActivity.this,R.anim.blink_anim);
-                save.startAnimation(animation);
-                boolean equalCondition=
-                        user.age== lastUserRecord.age&&
-                        user.gender== lastUserRecord.gender&&
-                        user.temperature== lastUserRecord.temperature&&
-                        user.dailyActivity== lastUserRecord.dailyActivity&&
-                        user.weight== lastUserRecord.weight&&
-                        user.height== lastUserRecord.height;
+        //CHECK IF NOTHING SELECTED AND GIVE USER WARNING TO SELECT
+        //THERE IS NO NEED TO PUSH USER TO CHOOSE BTW BECAUSE I TOOK PRECAUTION AGAINST THE CASE THAT USER ENTRIES NOTHING
+        save.setOnClickListener(v -> {
+            Animation animation = AnimationUtils.loadAnimation(LauncherActivity.this,R.anim.blink_anim);
+            save.startAnimation(animation);
+            boolean equalCondition=
+                    user.age== lastUserRecord.age&&
+                    user.gender== lastUserRecord.gender&&
+                    user.temperature== lastUserRecord.temperature&&
+                    user.dailyActivity== lastUserRecord.dailyActivity&&
+                    user.weight== lastUserRecord.weight&&
+                    user.height== lastUserRecord.height;
 
 
-                if(!equalCondition){
-                    //calculations.java
+            if(!equalCondition){
+                //calculations.java
+                user.bmi=(int)calculations.bmi(user.weight,user.height);
+                user.idealminweight=calculations.idealMinWeight(user.height);
+                user.idealmaxweight=calculations.idealMaxWeight(user.height);
+                user.goal=calculations.goalWater(user.weight);
+                user.proteinmaxreq=calculations.dailymaxprotein(user.weight,user.bmi);
+                user.proteinminreq=calculations.dailyminprotein(user.weight,user.bmi);
+
+                if(isLastRecordToday){
+                    dbViewModel.replaceLastRecord(user);
+                    //last record is today so update it
+                }
+                else{
+                    dbViewModel.insertOne(user); //insert a new record if values changed and
+                                //last record is not today
+                }
+
+                //take added water field from last record (if there is a record)
+                //if there is no last record just insert
+                //bmi,protein and other stuff will be added to insertion because they are only dependent to this page
+            }else{
+                if(!isLastRecordToday){ //Note: isLastRecordToday could be null and as a result activity will CRASH
+                    //I could not assign a default value to lastUserRecord.date because it is OffSetDateTime type
+                    // This case happens if getLastRecord (look below) response return null or
+                    //the USER clicks save incredibly faster than observer which i do not know if it is possible
                     user.bmi=(int)calculations.bmi(user.weight,user.height);
                     user.idealminweight=calculations.idealMinWeight(user.height);
                     user.idealmaxweight=calculations.idealMaxWeight(user.height);
                     user.goal=calculations.goalWater(user.weight);
                     user.proteinmaxreq=calculations.dailymaxprotein(user.weight,user.bmi);
                     user.proteinminreq=calculations.dailyminprotein(user.weight,user.bmi);
-
-                    dbViewModel.insertOne(user); //insert the record if its changed
-                    //take added water field from last record (if there is a record)
-                    //if there is no last record just insert
-                    //bmi,protein and other stuff will be added to insertion because they are only dependent to this page
+                    dbViewModel.insertOne(user);
                 }
-
-                goMainScreen();
+                //this else statement is written for creating a new record in case: if there is a record in database and its date not today
+                //take the old values, update the date(automatically) and insert it. This is done to track progress day by day in graphics
             }
 
+            goMainScreen();
         });
 
 
 
         dbViewModel.getLastRecord().observe(this,response->{
-
+            //If there is a record in database and response return null for some reason
+            // there is no code to take precaution against it right now
             if (response != null) {
+                isLastRecordToday=response.date.getDayOfMonth()==OffsetDateTime.now().getDayOfMonth();
                 spinnerDailyActivity.setSelection(response.dailyActivity);
                 spinnerWeather.setSelection(response.temperature);
                 spinnerweight.setSelection(weightArrayAdapter.getPosition( Integer.toString(response.weight)));
                 spinnerheight.setSelection(heightArrayAdapter.getPosition( Integer.toString(response.height)));
                 spinnerage.setSelection(ageArrayAdapter.getPosition(Integer.toString(response.age)));
-                if(response.date.getDayOfMonth()== OffsetDateTime.now().getDayOfMonth()){
+                if(isLastRecordToday){
                     user.drunk=response.drunk;
                 }
 

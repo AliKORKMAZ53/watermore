@@ -1,6 +1,7 @@
 package com.example.tektek.database;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -21,16 +22,18 @@ public interface Dao {
     @Query("SELECT * FROM UserTable ORDER BY date DESC LIMIT 1")
     LiveData<UserTable> getLastRecord();
 
-
-    @Query("SELECT * FROM UserTable ORDER BY date DESC LIMIT 8") //for graphics
+    @Query("SELECT * FROM UserTable ORDER BY date ASC LIMIT 8") //for graphics
     LiveData<List<UserTable>> getLastSevenRecord();
 
-    @Query("SELECT date FROM UserTable ORDER BY date DESC LIMIT 8") //for graphics
+    @Query("SELECT date FROM UserTable ORDER BY date DESC LIMIT 8")
     LiveData<List<String>> getLastSevenRecordDate();
 
 
     @Query("UPDATE UserTable SET drunk = :drunk + drunk WHERE recordId=(SELECT Max(recordId) FROM UserTable)")
     void update(int drunk);
+
+    @Query("DELETE FROM UserTable WHERE recordId=(SELECT MAX(recordId) FROM UserTable)")
+    void delete();
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

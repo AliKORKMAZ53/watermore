@@ -33,19 +33,16 @@ import java.util.List;
 public class GraphicActivity extends AppCompatActivity {
 
 
-    List<Entry> entries=new ArrayList<>();
-    List<Entry> entries2=new ArrayList<>();
-    List<Entry> entries3=new ArrayList<>();
-    List<Entry> entries4=new ArrayList<>();
-
+    List<Entry> entries,entries2,entries3,entries4,entries5;
     List<LineData> listLineData=new ArrayList<>();
+    List<LineData> listLineEmptyData=new ArrayList<>();
     DbViewModel dbViewModel;
 
     RecyclerView recyclerView;
     GraphicAdapter graphicAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) throws NegativeArraySizeException{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphic);
         recyclerView=findViewById(R.id.recyclerView);
@@ -54,35 +51,57 @@ public class GraphicActivity extends AppCompatActivity {
         dbViewModel=new DbViewModel(getApplication());
         dbViewModel.getLastSevenRecords().observe(this,responses->{
             if(responses!=null){
-
+                listLineData=new ArrayList<>();
+                entries=new ArrayList<>();
+                entries2=new ArrayList<>();
+                entries3=new ArrayList<>();
+                entries4=new ArrayList<>();
+                entries5=new ArrayList<>();
             for (int iv=0;iv<responses.size();iv++) {
                 entries.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).weight));
                 entries2.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).drunk));
                 entries3.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).idealminweight));
                 entries4.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).idealmaxweight));
-                Log.d("count","entryLOOP");
+                entries5.add(new Entry(responses.get(iv).date.getDayOfMonth(), (int) responses.get(iv).goal*1000));
+                Log.d("loopentry-1",Integer.toString(responses.get(iv).date.getDayOfMonth())+responses.get(iv).weight);
+                Log.d("loopentry-2",Integer.toString(responses.get(iv).date.getDayOfMonth())+responses.get(iv).drunk);
+                Log.d("loopentry-3",Integer.toString(responses.get(iv).date.getDayOfMonth())+responses.get(iv).idealminweight);
+                Log.d("loopentry-4",Integer.toString(responses.get(iv).date.getDayOfMonth())+responses.get(iv).idealmaxweight);
             }
-
+                Log.d("count-afterloop",Integer.toString(entries.size()));
             LineData drunklineData=new LineData();
             LineData minmaxWeightlineData=new LineData();
 
             LineDataSet drunk=new LineDataSet(entries2,"Drunk");
+            LineDataSet goal=new LineDataSet(entries5,"Goal");
             LineDataSet weg=new LineDataSet(entries,"Weight");
             LineDataSet minweg=new LineDataSet(entries3,"Minimum Weight");
             LineDataSet maxweg=new LineDataSet(entries4,"Maximum Weight");
 
             drunk.setValueTextSize(11);
-            drunk.setColor(Color.parseColor("#ff0000"));
+            drunk.setValueTextColor(Color.CYAN);
+            drunk.setColor(Color.CYAN);
             drunk.setCircleColor(Color.BLACK);
             drunk.setCircleHoleColor(Color.RED);
 
+
+            goal.setColor(Color.RED);
+            goal.setValueTextColor(Color.RED);
+
             weg.setValueTextSize(11);
+            weg.setValueTextColor(Color.CYAN);
             weg.setColor(Color.CYAN);
             weg.setCircleColor(Color.BLACK);
             weg.setCircleHoleColor(Color.RED);
 
+            minweg.setColor(Color.RED);
+            minweg.setValueTextColor(Color.RED);
+            maxweg.setColor(Color.RED);
+            maxweg.setValueTextColor(Color.RED);
+
 
             drunklineData.addDataSet(drunk);
+            drunklineData.addDataSet(goal);
 
             minmaxWeightlineData.addDataSet(weg);
             minmaxWeightlineData.addDataSet(minweg);
@@ -92,7 +111,7 @@ public class GraphicActivity extends AppCompatActivity {
                     listLineData.add(drunklineData);
                     listLineData.add(minmaxWeightlineData);
                     graphicAdapter.setLineDataList(listLineData);
-                graphicAdapter.notifyDataSetChanged();
+                    graphicAdapter.notifyDataSetChanged();
 
              //   }
 
@@ -106,10 +125,10 @@ public class GraphicActivity extends AppCompatActivity {
         initRecyclerView();
     }
 
-    private void initRecyclerView() {
+    private void initRecyclerView() throws NegativeArraySizeException{
         if(graphicAdapter==null){
             graphicAdapter=new GraphicAdapter(GraphicActivity.this);
-            graphicAdapter.setLineDataList(listLineData);//for nullablity at beginning
+            graphicAdapter.setLineDataList(listLineEmptyData);//for nullablity at beginning
             RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(graphicAdapter);

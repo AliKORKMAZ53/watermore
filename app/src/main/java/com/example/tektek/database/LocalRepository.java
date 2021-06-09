@@ -46,6 +46,13 @@ public class LocalRepository {
         return date;
     }
 
+    public void replaceLastRecord(UserTable userTable){
+        AppDatabase.databaseWriteExecutor.execute(()->{
+            dao.delete();
+            dao.insertOne(userTable);
+        });
+    }
+
 
 
 
