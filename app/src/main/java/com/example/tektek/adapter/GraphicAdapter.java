@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tektek.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.data.LineData;
+
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,29 +26,39 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
     private Context context;
     private List<LineData> lineDataList=new ArrayList<>();
     List<Description> descriptions=new ArrayList<>();
-    ArrayList<String> descriptionsStrings=new ArrayList<>();
     ArrayList<String> titleText=new ArrayList<>();
+    LimitLine bmiUpperLimitLine;
+    LimitLine bmiDownLimitLine;
 
     public void setLineDataList(List<LineData> lineDataList) throws NegativeArraySizeException{
-        Log.d("graphicAdapter","setlinedatalist");
         this.lineDataList = lineDataList;
     }
 
 
-    public GraphicAdapter(Context context){
+    public GraphicAdapter(Context context, Integer[] bmiLimits){
         this.context=context;
         titleText.add("Water Drunk - Time");
         titleText.add("Weight - Time");
-        descriptionsStrings.add("Milliliter - Day of Month");
-        descriptionsStrings.add("Kilogram - Day of Month");
+        titleText.add("Body Mass Index - Time");
         Description descriptionWeight=new Description();
         Description descriptionDrunk=new Description();
-        descriptionWeight.setText(descriptionsStrings.get(0));
-        descriptionDrunk.setText(descriptionsStrings.get(1));
+        Description descriptionBmi=new Description();
+        descriptionWeight.setText("Milliliter - Day of Month");
+        descriptionDrunk.setText("Kilogram - Day of Month");
+        descriptionBmi.setText("Bmi - Day of Month");
         descriptionWeight.setTextColor(Color.YELLOW);
         descriptionDrunk.setTextColor(Color.YELLOW);
+        descriptionBmi.setTextColor(Color.YELLOW);
         descriptions.add(descriptionWeight);
         descriptions.add(descriptionDrunk);
+        descriptions.add(descriptionBmi);
+        Log.d("AGEE",Integer.toString(bmiLimits[0]));
+        bmiUpperLimitLine =new LimitLine(bmiLimits[1],"Overweight");
+        bmiDownLimitLine= new LimitLine(bmiLimits[0],"Underweight");
+        bmiUpperLimitLine.setLineWidth(5);
+        bmiUpperLimitLine.setTextColor(Color.YELLOW);
+        bmiDownLimitLine.setLineWidth(5);
+        bmiDownLimitLine.setTextColor(Color.YELLOW);
     }
 
     @NonNull
@@ -62,11 +75,15 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
         holder.lineChart.setDescription(descriptions.get(position));
         holder.titleText.setText(titleText.get(position));
         holder.titleText.setTextColor(Color.YELLOW);
-       holder.lineChart.setBackgroundColor(Color.BLACK);
-       holder.lineChart.getXAxis().setTextColor(Color.YELLOW);
-       holder.lineChart.getLegend().setTextColor(Color.YELLOW);
+        holder.lineChart.setBackgroundColor(Color.BLACK);
+        holder.lineChart.getXAxis().setTextColor(Color.YELLOW);
+        holder.lineChart.getAxisLeft().setTextColor(Color.YELLOW);
+        holder.lineChart.getLegend().setTextColor(Color.YELLOW);
         holder.lineChart.setNoDataTextColor(Color.YELLOW);
-
+        if(position==2){
+            holder.lineChart.getAxisLeft().addLimitLine(bmiUpperLimitLine);
+            holder.lineChart.getAxisLeft().addLimitLine(bmiDownLimitLine);
+        }
         holder.lineChart.animateY(1000);
         holder.lineChart.invalidate();
 

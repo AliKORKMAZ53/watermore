@@ -34,6 +34,7 @@ public class MainPage extends AppCompatActivity {
     }
     public void goGraphicScreen(){
         Intent intent=new Intent(this,GraphicActivity.class);
+        intent.putExtra("age",age);
         startActivity(intent);
     }
     public void setReminderScreen(){
@@ -44,7 +45,7 @@ public class MainPage extends AppCompatActivity {
     TextView bmiText;
     TextView goalText;
     TextView droppercentage;
-
+    int age;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +72,9 @@ public class MainPage extends AppCompatActivity {
         });
         ImageView gender=findViewById(R.id.imageView13); //imageview13 -> gender view
         dbViewModel.getLastRecord().observe(this,response->{
+
           if(response!=null) {
+              age=response.age;
               String trim = String.valueOf(((double) response.drunk / 1000) / response.goal);
               int stringsize = trim.length();
               if(isLastRecordToday){

@@ -2,7 +2,10 @@ package com.example.tektek;
 
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -37,7 +40,7 @@ public class AddWaterPopScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_water_pop);
-
+        userTable=new UserTable();
         //Database and time stuff
         AndroidThreeTen.init(this);
         dbViewModel=new DbViewModel(getApplication());
@@ -46,10 +49,10 @@ public class AddWaterPopScreen extends AppCompatActivity {
             if(response!=null){
                 userTable=response;
                 isLastRecordToday= OffsetDateTime.now().getDayOfMonth()==
-                        (response.date).getDayOfMonth();
+                        (response.date).getDayOfMonth(); //GİVES NULL
 
             }else {
-                Toast.makeText(this,"lastdate response is empty",Toast.LENGTH_SHORT).show();
+                Log.d("lastdate","lastdate response is empty");
             }
         });
 
@@ -96,6 +99,23 @@ public class AddWaterPopScreen extends AppCompatActivity {
         binustuml.setVisibility(View.INVISIBLE);
         binustuveri.setVisibility(View.INVISIBLE);
         binustuyazi.setVisibility(View.INVISIBLE);
+
+        binustuveri.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            addwater=Integer.parseInt(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
     }
 

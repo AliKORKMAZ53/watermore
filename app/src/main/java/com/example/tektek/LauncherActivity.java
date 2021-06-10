@@ -2,8 +2,11 @@ package com.example.tektek;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -37,11 +40,13 @@ public class LauncherActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//İLK SEFERİNDE DEĞERLER GİRİLMEYİNCE HATA VERİLMESİ GEREKİYOR
+//EN AZINDAN BİR DEĞER GİRMESİNİ İSTE USER'DAN ÇÜNKÜ BİR KAYIT OLUŞTURULMASI
+    //GEREKİYOR
     UserTable user=new UserTable();
     UserTable lastUserRecord =new UserTable();
     Calculations calculations;
     Boolean isLastRecordToday;
+    AlertDialog.Builder adb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -236,6 +241,8 @@ public class LauncherActivity extends AppCompatActivity {
                 user.proteinminreq=calculations.dailyminprotein(user.weight,user.bmi);
 
                 if(isLastRecordToday){
+
+                    user.date=OffsetDateTime.now();
                     dbViewModel.replaceLastRecord(user);
                     //last record is today so update it
                 }
@@ -243,12 +250,15 @@ public class LauncherActivity extends AppCompatActivity {
                     dbViewModel.insertOne(user); //insert a new record if values changed and
                                 //last record is not today
                 }
+                goMainScreen();
 
                 //take added water field from last record (if there is a record)
                 //if there is no last record just insert
                 //bmi,protein and other stuff will be added to insertion because they are only dependent to this page
             }else{
-                if(!isLastRecordToday){ //Note: isLastRecordToday could be null and as a result activity will CRASH
+
+                if(!isLastRecordToday){//ilk değişimsiz giriş buraya düşüyor
+                    //Note: isLastRecordToday could be null and as a result activity will CRASH
                     //I could not assign a default value to lastUserRecord.date because it is OffSetDateTime type
                     // This case happens if getLastRecord (look below) response return null or
                     //the USER clicks save incredibly faster than observer which i do not know if it is possible
@@ -258,13 +268,38 @@ public class LauncherActivity extends AppCompatActivity {
                     user.goal=calculations.goalWater(user.weight);
                     user.proteinmaxreq=calculations.dailymaxprotein(user.weight,user.bmi);
                     user.proteinminreq=calculations.dailyminprotein(user.weight,user.bmi);
-                    dbViewModel.insertOne(user);
+                    if(user.height==0||user.weight==0||user.age==0||user.gender==0||
+                            user.temperature==0||user.dailyActivity==0){
+                        adb=new AlertDialog.Builder(this);
+                        adb.setTitle("Warning");
+                        adb.setMessage("Lack of selections cause false calculations. Are you sure?");
+                        adb.setPositiveButton("Ok boomer", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                goMainScreen();
+                            }
+                        });
+                        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        adb.show();
+
+                    }else{
+                        dbViewModel.insertOne(user);
+                        goMainScreen();
+                    }
+
+
                 }
+
                 //this else statement is written for creating a new record in case: if there is a record in database and its date not today
                 //take the old values, update the date(automatically) and insert it. This is done to track progress day by day in graphics
             }
 
-            goMainScreen();
+
         });
 
 

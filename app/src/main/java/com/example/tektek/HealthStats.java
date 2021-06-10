@@ -58,15 +58,18 @@ public class HealthStats extends AppCompatActivity {
 
 
         dbViewModel.getLastRecord().observe(this,response->{
-            d1.setText(String.valueOf(response.bmi)+" "+ getResources().getString(R.string.bmishort));
-            d2.setText(String.valueOf(response.idealminweight)+"-"+String.valueOf(response.idealmaxweight)+" kg");
-            d3.setText(String.valueOf(calculations.bloodRate(response.gender,response.weight))+" mL");
-            int bmh=calculations.bmh(response.gender,response.weight,response.height,response.age);
-            d4.setText(String.valueOf(bmh)+" kcal");
-            d5.setText(String.valueOf(response.proteinminreq)+"-"+String.valueOf(response.proteinmaxreq)+" gr");
-            d6.setText(String.valueOf(String.format("%.2f", response.goal))+" L");
-            d7.setText(String.valueOf(calculations.minFat(bmh))+"-"+String.valueOf(calculations.maxFat(bmh))+" gr");
-        });
+            if(response!=null){
+                d1.setText(String.valueOf(response.bmi)+" "+ getResources().getString(R.string.bmishort));
+                d2.setText(String.valueOf(response.idealminweight)+"-"+String.valueOf(response.idealmaxweight)+" kg");
+                d3.setText(String.valueOf(calculations.bloodRate(response.gender,response.weight))+" mL");
+                int bmh=calculations.bmh(response.gender,response.weight,response.height,response.age);
+                d4.setText(String.valueOf(bmh)+" kcal");
+                d5.setText(String.valueOf(response.proteinminreq)+"-"+String.valueOf(response.proteinmaxreq)+" gr");
+                d6.setText(String.valueOf(String.format("%.2f", response.goal))+" L");
+                d7.setText(String.valueOf(calculations.minFat(bmh))+"-"+String.valueOf(calculations.maxFat(bmh))+" gr");
+
+            }
+            });
 
         Animation animation1 = AnimationUtils.loadAnimation(HealthStats.this,R.anim.fadein);
         Animation animation2 = AnimationUtils.loadAnimation(HealthStats.this,R.anim.lefttoright);
