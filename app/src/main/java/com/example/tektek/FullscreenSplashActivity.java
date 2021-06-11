@@ -37,7 +37,7 @@ public class FullscreenSplashActivity extends AppCompatActivity {
                     startActivity(intentMain);
                 }
                 finish();
-            },3000);
+            },2000);
         });
 
     }

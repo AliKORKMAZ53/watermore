@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -47,7 +46,7 @@ public class LauncherActivity extends AppCompatActivity {
     Calculations calculations;
     Boolean isLastRecordToday;
     AlertDialog.Builder adb;
-
+    DbViewModel dbViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +60,15 @@ public class LauncherActivity extends AppCompatActivity {
         lastUserRecord.temperature=0;
         isLastRecordToday=false; //THIS IS A TRIAL OF DEFAULT VALUE - REVIEW ALL THE CASES PLS
 
+        user.height=0;
+        user.weight=0;
+        user.dailyActivity=0;
+        user.age=0;
+        user.gender=0;
+        user.temperature=0;
         AndroidThreeTen.init(getApplication());
-
-        DbViewModel dbViewModel=new DbViewModel(this.getApplication());
+        user.date=OffsetDateTime.now();
+        dbViewModel=new DbViewModel(this.getApplication());
         calculations=new Calculations();
 
         //Radio Group
@@ -233,8 +238,8 @@ public class LauncherActivity extends AppCompatActivity {
                     user.height== lastUserRecord.height;
 
 
-            if(!equalCondition){
-                //calculations.java
+            if(!equalCondition){//if there is a change
+
                 user.bmi=(int)calculations.bmi(user.weight,user.height);
                 user.idealminweight=calculations.idealMinWeight(user.height);
                 user.idealmaxweight=calculations.idealMaxWeight(user.height);
@@ -242,52 +247,41 @@ public class LauncherActivity extends AppCompatActivity {
                 user.proteinmaxreq=calculations.dailymaxprotein(user.weight,user.bmi);
                 user.proteinminreq=calculations.dailyminprotein(user.weight,user.bmi);
 
-                if(isLastRecordToday){
+                if(isThereUnselectedItem()){
+                    showAlertDialogConditionOne();
 
-                    user.date=OffsetDateTime.now();
-                    dbViewModel.replaceLastRecord(user);
-                    //last record is today so update it
+                }else{
+                    if(isLastRecordToday){
+                        dbViewModel.replaceLastRecord(user);
+                        //last record is today so update it
+                    }
+                    else{
+                        dbViewModel.insertOne(user); //insert a new record if values changed and
+                        //last record is not today
+                    }
+                    goMainScreen();
                 }
-                else{
-                    dbViewModel.insertOne(user); //insert a new record if values changed and
-                                //last record is not today
-                }
-                goMainScreen();
+
 
                 //take added water field from last record (if there is a record)
                 //if there is no last record just insert
                 //bmi,protein and other stuff will be added to insertion because they are only dependent to this page
-            }else{
+
+            }else{//if there is no change in selections
 
                 if(!isLastRecordToday){//ilk değişimsiz giriş buraya düşüyor
                     //Note: isLastRecordToday could be null and as a result activity will CRASH
                     //I could not assign a default value to lastUserRecord.date because it is OffSetDateTime type
                     // This case happens if getLastRecord (look below) response return null or
                     //the USER clicks save incredibly faster than observer which i do not know if it is possible
-                    user.bmi=(int)calculations.bmi(user.weight,user.height);
-                    user.idealminweight=calculations.idealMinWeight(user.height);
+                    user.bmi=(int)calculations.bmi(user.weight,user.height); //we dont assign lastuserrecord to user because
+                    user.idealminweight=calculations.idealMinWeight(user.height);   //first entry would give error
                     user.idealmaxweight=calculations.idealMaxWeight(user.height);
                     user.goal=calculations.goalWater(user.weight);
                     user.proteinmaxreq=calculations.dailymaxprotein(user.weight,user.bmi);
                     user.proteinminreq=calculations.dailyminprotein(user.weight,user.bmi);
-                    if(user.height==0||user.weight==0||user.age==0||user.gender==0||
-                            user.temperature==0||user.dailyActivity==0){
-                        adb=new AlertDialog.Builder(this);
-                        adb.setTitle("Warning");
-                        adb.setMessage("Lack of selections cause false calculations. Are you sure?");
-                        adb.setPositiveButton("Ok boomer", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                goMainScreen();
-                            }
-                        });
-                        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
-                        adb.show();
+                    if(isThereUnselectedItem()){
+                        showAlertDialogConditionTwo();
 
                     }else{
                         dbViewModel.insertOne(user);
@@ -296,13 +290,12 @@ public class LauncherActivity extends AppCompatActivity {
 
 
                 }else{
-                    user.bmi=(int)calculations.bmi(user.weight,user.height);
-                    user.idealminweight=calculations.idealMinWeight(user.height);
-                    user.idealmaxweight=calculations.idealMaxWeight(user.height);
-                    user.goal=calculations.goalWater(user.weight);
-                    user.proteinmaxreq=calculations.dailymaxprotein(user.weight,user.bmi);
-                    user.proteinminreq=calculations.dailyminprotein(user.weight,user.bmi);
-                    dbViewModel.replaceLastRecord(user);
+                    if(isThereUnselectedItem()){
+                        showAlertDialogConditionThree();
+                    }else {
+                        goMainScreen();
+                    }
+
                 }
 
                 //this else statement is written for creating a new record in case: if there is a record in database and its date not today
@@ -342,6 +335,85 @@ public class LauncherActivity extends AppCompatActivity {
 
         });
 
+
+    }
+
+    public boolean isThereUnselectedItem(){
+        return user.height == 0 || user.weight == 0 || user.age == 0 || user.gender == 0 ||
+                user.temperature == 0 || user.dailyActivity == 0;
+        }
+
+        public void showAlertDialogConditionOne(){
+
+                adb=new AlertDialog.Builder(this);
+                adb.setTitle("Warning");
+                adb.setMessage("Lack of selections cause miscalculations. Are you sure?");
+                adb.setPositiveButton("Continue Anyway", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(isLastRecordToday){
+                            dbViewModel.replaceLastRecord(user);
+                            //last record is today so update it
+                        }
+                        else{
+                            dbViewModel.insertOne(user); //insert a new record if values changed and
+                            //last record is not today
+                        }
+                        goMainScreen();
+
+                    }
+                });
+                adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+                adb.show();
+
+            }
+    public void showAlertDialogConditionTwo(){
+
+        adb=new AlertDialog.Builder(this);
+        adb.setTitle("Warning");
+        adb.setMessage("Lack of selections cause miscalculations. Are you sure?");
+        adb.setPositiveButton("Continue Anyway", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dbViewModel.insertOne(user);
+                goMainScreen();
+            }
+        });
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+
+            }
+        });
+        adb.show();
+
+    }
+    public void showAlertDialogConditionThree(){
+
+        adb=new AlertDialog.Builder(this);
+        adb.setTitle("Warning");
+        adb.setMessage("Lack of selections cause miscalculations. Are you sure?");
+        adb.setPositiveButton("Continue Anyway", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                goMainScreen();
+            }
+        });
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+
+            }
+        });
+        adb.show();
 
     }
 
