@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -252,10 +253,12 @@ public class LauncherActivity extends AppCompatActivity {
 
                 }else{
                     if(isLastRecordToday){
+                        Log.d("replace","condition 1");
                         dbViewModel.replaceLastRecord(user);
                         //last record is today so update it
                     }
                     else{
+                        Log.d("replace","condition 2");
                         dbViewModel.insertOne(user); //insert a new record if values changed and
                         //last record is not today
                     }
@@ -284,6 +287,7 @@ public class LauncherActivity extends AppCompatActivity {
                         showAlertDialogConditionTwo();
 
                     }else{
+                        Log.d("replace","condition 4");
                         dbViewModel.insertOne(user);
                         goMainScreen();
                     }
@@ -352,10 +356,12 @@ public class LauncherActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if(isLastRecordToday){
+                            Log.d("replace","condition 3");
                             dbViewModel.replaceLastRecord(user);
                             //last record is today so update it
                         }
                         else{
+                            Log.d("replace","condition 6");
                             dbViewModel.insertOne(user); //insert a new record if values changed and
                             //last record is not today
                         }
@@ -381,6 +387,7 @@ public class LauncherActivity extends AppCompatActivity {
         adb.setPositiveButton("Continue Anyway", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Log.d("replace","condition 5");
                 dbViewModel.insertOne(user);
                 goMainScreen();
             }

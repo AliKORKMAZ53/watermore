@@ -56,12 +56,12 @@ public class GraphicActivity extends AppCompatActivity {
                     age = responses.get(0).age;
                 }
 
-            for (int iv=0;iv<responses.size();iv++) {
+            for (int iv=responses.size()-1;iv>=0;iv--) {
                 entries.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).weight));
                 entries2.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).drunk));
                 entries3.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).idealminweight));
                 entries4.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).idealmaxweight));
-                entries5.add(new Entry(responses.get(iv).date.getDayOfMonth(), (int) responses.get(iv).goal*1000));
+                entries5.add(new Entry(responses.get(iv).date.getDayOfMonth(), (float) (responses.get(iv).goal)*1000));
                 entries6.add(new Entry(responses.get(iv).date.getDayOfMonth(), (int) responses.get(iv).bmi));
 
                 }

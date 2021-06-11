@@ -251,13 +251,16 @@ public class AddWaterPopScreen extends AppCompatActivity {
 
     //check the date, if the last record is today
     //then add water, otherwise create new record with last values (except the drunk, drunk should be zeroed) then add water
-    public void onSavePortionClicked(View view) throws NullPointerException{
+    public void onSavePortionClicked(View view){
         if(isLastRecordToday){
             dbViewModel.update(addwater);
+            Log.d("replace","condition 1");
         }else{
             userTable.drunk=addwater;
+            userTable.recordId=userTable.recordId+1;
             dbViewModel.insertOne(userTable);
             //new record inserting doesnt work
+            Log.d("replace","condition 2");
         }
         AddWaterPopScreen.this.finish();
     }
