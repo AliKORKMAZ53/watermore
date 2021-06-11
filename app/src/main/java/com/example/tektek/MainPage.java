@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.tektek.utils.Constants;
 import com.example.tektek.utils.TiviTypeConverters;
 import com.example.tektek.viewmodel.DbViewModel;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import org.threeten.bp.OffsetDateTime;
 
@@ -56,7 +57,7 @@ public class MainPage extends AppCompatActivity {
         Button degerekran;
         Button setReminder;
         Button graphicshowbutton=findViewById(R.id.graphicShowButton);
-
+        AndroidThreeTen.init(getApplication());
         bmiText=findViewById(R.id.bmitextmainpage);
         goalText=findViewById(R.id.goalwatertext);
         droppercentage=findViewById(R.id.droppercentage);

@@ -19,6 +19,7 @@ public class HealthStats extends AppCompatActivity {
     public void turnMainScreen(){
         Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);
+        finish();
     }
     Calculations calculations=new Calculations();
     @Override

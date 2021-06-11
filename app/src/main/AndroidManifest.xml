@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tektek">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -17,7 +19,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tektek">
-        <activity android:name=".GraphicActivity"></activity>
+        <activity
+            android:name=".FullscreenSplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen_splash"
+            android:theme="@style/Theme.Tektek.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GraphicActivity" />
         <activity android:name=".ReminderScreen" />
         <activity android:name=".HealthStats" />
         <activity
@@ -26,13 +39,9 @@
         <activity
             android:name=".AddWaterPopScreen"
             android:theme="@style/PopMe" />
-        <activity android:name=".MainPage" />
+        <activity android:name=".MainPage"></activity>
         <activity android:name=".LauncherActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

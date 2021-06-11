@@ -38,15 +38,16 @@ public class LauncherActivity extends AppCompatActivity {
     public void goMainScreen(){
         Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);
+        finish();
     }
 
-//EN AZINDAN BİR DEĞER GİRMESİNİ İSTE USER'DAN ÇÜNKÜ BİR KAYIT OLUŞTURULMASI
-    //GEREKİYOR
+
     UserTable user=new UserTable();
     UserTable lastUserRecord =new UserTable();
     Calculations calculations;
     Boolean isLastRecordToday;
     AlertDialog.Builder adb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,7 @@ public class LauncherActivity extends AppCompatActivity {
         lastUserRecord.temperature=0;
         isLastRecordToday=false; //THIS IS A TRIAL OF DEFAULT VALUE - REVIEW ALL THE CASES PLS
 
+        AndroidThreeTen.init(getApplication());
 
         DbViewModel dbViewModel=new DbViewModel(this.getApplication());
         calculations=new Calculations();
@@ -293,6 +295,14 @@ public class LauncherActivity extends AppCompatActivity {
                     }
 
 
+                }else{
+                    user.bmi=(int)calculations.bmi(user.weight,user.height);
+                    user.idealminweight=calculations.idealMinWeight(user.height);
+                    user.idealmaxweight=calculations.idealMaxWeight(user.height);
+                    user.goal=calculations.goalWater(user.weight);
+                    user.proteinmaxreq=calculations.dailymaxprotein(user.weight,user.bmi);
+                    user.proteinminreq=calculations.dailyminprotein(user.weight,user.bmi);
+                    dbViewModel.replaceLastRecord(user);
                 }
 
                 //this else statement is written for creating a new record in case: if there is a record in database and its date not today
