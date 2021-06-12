@@ -15,15 +15,20 @@ import com.example.watermore.viewmodel.DbViewModel;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.formatter.IValueFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.Utils;
 
-import org.threeten.bp.DayOfWeek;
+import org.threeten.bp.DateTimeUtils;
+import org.threeten.bp.Instant;
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class GraphicActivity extends AppCompatActivity {
 
@@ -32,6 +37,8 @@ public class GraphicActivity extends AppCompatActivity {
     List<LineData> listLineData=new ArrayList<>();
     List<LineData> listLineEmptyData=new ArrayList<>();
     DbViewModel dbViewModel;
+    DateTimeFormatter formatter=DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss OOOO yyyy", Locale.ROOT);
+
 
     RecyclerView recyclerView;
     GraphicAdapter graphicAdapter;
@@ -47,6 +54,7 @@ public class GraphicActivity extends AppCompatActivity {
         Utils.init(getApplicationContext());
         dbViewModel=new DbViewModel(getApplication());
         dbViewModel.getLastSevenRecords().observe(this,responses->{
+
             if(responses!=null){
                 listLineData=new ArrayList<>();
                 entries=new ArrayList<>();
@@ -61,14 +69,19 @@ public class GraphicActivity extends AppCompatActivity {
                     age = responses.get(0).age;
                 }
 
-            for (int iv=responses.size()-1;iv>=0;iv--) {
-                entries.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).weight));
-                entries2.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).drunk));
-                entries3.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).idealminweight));
-                entries4.add(new Entry(responses.get(iv).date.getDayOfMonth(),responses.get(iv).idealmaxweight));
-                entries5.add(new Entry(responses.get(iv).date.getDayOfMonth(), (float) (responses.get(iv).goal)*1000));
-                entries6.add(new Entry(responses.get(iv).date.getDayOfMonth(), (int) responses.get(iv).bmi));
 
+
+
+            for (int iv=responses.size()-1;iv>=0;iv--) {
+                long timeInMilliseconds = OffsetDateTime.parse(responses.get(iv).date.format(formatter), formatter)
+                        .toInstant()
+                        .toEpochMilli();
+                entries.add(new Entry(timeInMilliseconds,responses.get(iv).weight));
+                entries2.add(new Entry(timeInMilliseconds,responses.get(iv).drunk));
+                entries3.add(new Entry(timeInMilliseconds,responses.get(iv).idealminweight));
+                entries4.add(new Entry(timeInMilliseconds,responses.get(iv).idealmaxweight));
+                entries5.add(new Entry(timeInMilliseconds, (float) (responses.get(iv).goal)*1000));
+                entries6.add(new Entry(timeInMilliseconds, (int) responses.get(iv).bmi));
                 }
 
             
@@ -117,12 +130,15 @@ public class GraphicActivity extends AppCompatActivity {
 
             bmiData.addDataSet(bmi);
 
+
             drunklineData.addDataSet(drunk);
             drunklineData.addDataSet(goal);
+
 
             minmaxWeightlineData.addDataSet(weg);
             minmaxWeightlineData.addDataSet(minweg);
             minmaxWeightlineData.addDataSet(maxweg);
+
 
               //  if(responses.size()==entries.size()){
                     listLineData.add(drunklineData);
@@ -180,5 +196,11 @@ public class GraphicActivity extends AppCompatActivity {
         }
 
     }
+    /*public int dayAndMonth(int month, int day){
+            month=month*100;
+
+        return  month+day;
+    }*/
+
 
 }

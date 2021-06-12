@@ -12,14 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.watermore.R;
+import com.example.watermore.utils.MyAxisFormatter;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 
 
+import org.threeten.bp.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +83,14 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
         holder.lineChart.setBackgroundColor(Color.BLACK);
         holder.lineChart.getXAxis().setTextColor(Color.YELLOW);
         //holder.lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        holder.lineChart.getXAxis().setValueFormatter(new MyAxisFormatter());
+        holder.lineChart.getXAxis().setGranularity(1);
+        //holder.lineChart.getXAxis().setAxisMaximum();
+       holder.lineChart.getXAxis().setLabelCount(lineDataList.get(position).getDataSets().get(0).getEntryCount(),true);
+           // holder.lineChart.getXAxis().mAxisRange=6;//will be tested
+
+
+
         holder.lineChart.getAxisLeft().setTextColor(Color.YELLOW);
         holder.lineChart.getLegend().setTextColor(Color.YELLOW);
         //holder.lineChart.getLegend().setDirection(Legend.LegendDirection.RIGHT_TO_LEFT);
