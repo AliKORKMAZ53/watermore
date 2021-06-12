@@ -1,4 +1,4 @@
-package com.example.tektek;
+package com.example.watermore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,10 +18,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
-import com.example.tektek.database.UserTable;
-import com.example.tektek.utils.Calculations;
-import com.example.tektek.utils.Constants;
-import com.example.tektek.viewmodel.DbViewModel;
+import com.example.watermore.database.UserTable;
+import com.example.watermore.utils.Calculations;
+import com.example.watermore.utils.Constants;
+import com.example.watermore.viewmodel.DbViewModel;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import org.threeten.bp.OffsetDateTime;

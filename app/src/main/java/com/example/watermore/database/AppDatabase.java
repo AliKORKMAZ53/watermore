@@ -1,4 +1,4 @@
-package com.example.tektek.database;
+package com.example.watermore.database;
 
 import android.content.Context;
 

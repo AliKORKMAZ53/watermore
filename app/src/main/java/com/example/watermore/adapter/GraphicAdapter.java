@@ -1,4 +1,4 @@
-package com.example.tektek.adapter;
+package com.example.watermore.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,10 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tektek.R;
+import com.example.watermore.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.LineData;
 
 
@@ -77,8 +79,10 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
         holder.titleText.setTextColor(Color.YELLOW);
         holder.lineChart.setBackgroundColor(Color.BLACK);
         holder.lineChart.getXAxis().setTextColor(Color.YELLOW);
+        //holder.lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         holder.lineChart.getAxisLeft().setTextColor(Color.YELLOW);
         holder.lineChart.getLegend().setTextColor(Color.YELLOW);
+        //holder.lineChart.getLegend().setDirection(Legend.LegendDirection.RIGHT_TO_LEFT);
         holder.lineChart.setNoDataTextColor(Color.YELLOW);
         if(position==2){
             holder.lineChart.getAxisLeft().addLimitLine(bmiUpperLimitLine);

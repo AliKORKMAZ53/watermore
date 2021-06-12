@@ -1,4 +1,4 @@
-package com.example.tektek;
+package com.example.watermore;
 
 import androidx.appcompat.app.AppCompatActivity;
 

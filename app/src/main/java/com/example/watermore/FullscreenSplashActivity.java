@@ -1,17 +1,12 @@
-package com.example.tektek;
+package com.example.watermore;
 
-import android.annotation.SuppressLint;
-
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
 
-import com.example.tektek.viewmodel.DbViewModel;
+import com.example.watermore.viewmodel.DbViewModel;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.

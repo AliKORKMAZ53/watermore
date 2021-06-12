@@ -1,4 +1,4 @@
-package com.example.tektek;
+package com.example.watermore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tektek.utils.Calculations;
-import com.example.tektek.viewmodel.DbViewModel;
+import com.example.watermore.utils.Calculations;
+import com.example.watermore.viewmodel.DbViewModel;
 
 public class HealthStats extends AppCompatActivity {
 

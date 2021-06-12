@@ -1,17 +1,13 @@
-package com.example.tektek.database
+package com.example.watermore.database
 
 import android.content.Context
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.After
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.concurrent.Executor
 
 
 @RunWith(AndroidJUnit4::class)

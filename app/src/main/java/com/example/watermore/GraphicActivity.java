@@ -1,5 +1,5 @@
 
-package com.example.tektek;
+package com.example.watermore;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,12 +10,17 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.tektek.adapter.GraphicAdapter;
-import com.example.tektek.viewmodel.DbViewModel;
+import com.example.watermore.adapter.GraphicAdapter;
+import com.example.watermore.viewmodel.DbViewModel;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.Utils;
+
+import org.threeten.bp.DayOfWeek;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +71,7 @@ public class GraphicActivity extends AppCompatActivity {
 
                 }
 
+            
             LineData drunklineData=new LineData();
             LineData minmaxWeightlineData=new LineData();
             LineData bmiData=new LineData();

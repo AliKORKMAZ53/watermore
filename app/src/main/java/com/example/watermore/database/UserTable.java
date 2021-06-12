@@ -1,11 +1,11 @@
-package com.example.tektek.database;
+package com.example.watermore.database;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import com.example.tektek.utils.TiviTypeConverters;
+import com.example.watermore.utils.TiviTypeConverters;
 
 import org.threeten.bp.OffsetDateTime;
 

@@ -1,4 +1,4 @@
-package com.example.tektek;
+package com.example.watermore;
 
 
 import android.os.Bundle;
@@ -14,14 +14,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import com.example.tektek.database.UserTable;
-import com.example.tektek.utils.TiviTypeConverters;
-import com.example.tektek.viewmodel.DbViewModel;
+import com.example.watermore.database.UserTable;
+import com.example.watermore.viewmodel.DbViewModel;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import org.threeten.bp.OffsetDateTime;

@@ -1,21 +1,12 @@
-package com.example.tektek.database;
+package com.example.watermore.database;
 
 import android.app.Application;
-import android.graphics.Color;
 
 import androidx.lifecycle.LiveData;
 
 
-import com.example.tektek.utils.TiviTypeConverters;
-import com.github.mikephil.charting.data.DataSet;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.jakewharton.threetenabp.AndroidThreeTen;
-
 import org.threeten.bp.OffsetDateTime;
 
-import java.util.HashMap;
 import java.util.List;
 
 

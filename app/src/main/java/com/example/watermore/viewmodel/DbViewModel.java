@@ -1,18 +1,12 @@
-package com.example.tektek.viewmodel;
+package com.example.watermore.viewmodel;
 
 import android.app.Application;
-import android.graphics.Color;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.tektek.database.LocalRepository;
-import com.example.tektek.database.UserTable;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-
-import org.threeten.bp.OffsetDateTime;
+import com.example.watermore.database.LocalRepository;
+import com.example.watermore.database.UserTable;
 
 import java.util.List;
 

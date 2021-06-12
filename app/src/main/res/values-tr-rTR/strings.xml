@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--launcher activity -->
-    <string name="app_name">tektek</string>
+    <string name="app_name">Watermore</string>
     <string name="save">Kaydet</string>
     <string name="weight">Kilo</string>
     <string name="height">Boy</string>

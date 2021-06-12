@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tektek">
+    package="com.example.watermore">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -20,9 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tektek">
         <activity
-            android:name=".FullscreenSplashActivity"
+            android:name="com.example.watermore.FullscreenSplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_fullscreen_splash"
+            android:label="Watermore"
             android:theme="@style/Theme.Tektek.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,17 +30,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GraphicActivity" />
-        <activity android:name=".ReminderScreen" />
-        <activity android:name=".HealthStats" />
+        <activity android:name="com.example.watermore.GraphicActivity" />
+        <activity android:name="com.example.watermore.ReminderScreen" />
+        <activity android:name="com.example.watermore.HealthStats" />
         <activity
-            android:name=".usernamesPop"
+            android:name="com.example.watermore.usernamesPop"
             android:theme="@style/PopMe" />
         <activity
-            android:name=".AddWaterPopScreen"
+            android:name="com.example.watermore.AddWaterPopScreen"
             android:theme="@style/PopMe" />
-        <activity android:name=".MainPage"></activity>
-        <activity android:name=".LauncherActivity">
+        <activity android:name="com.example.watermore.MainPage"></activity>
+        <activity android:name="com.example.watermore.LauncherActivity">
 
         </activity>
 

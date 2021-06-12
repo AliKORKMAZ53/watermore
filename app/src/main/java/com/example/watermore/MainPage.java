@@ -1,4 +1,4 @@
-package com.example.tektek;
+package com.example.watermore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.tektek.utils.Constants;
-import com.example.tektek.utils.TiviTypeConverters;
-import com.example.tektek.viewmodel.DbViewModel;
+import com.example.watermore.utils.Constants;
+import com.example.watermore.utils.TiviTypeConverters;
+import com.example.watermore.viewmodel.DbViewModel;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import org.threeten.bp.OffsetDateTime;

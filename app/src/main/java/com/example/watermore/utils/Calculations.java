@@ -1,4 +1,4 @@
-package com.example.tektek.utils;
+package com.example.watermore.utils;
 
 public class Calculations {
 

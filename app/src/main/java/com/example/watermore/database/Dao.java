@@ -1,15 +1,10 @@
-package com.example.tektek.database;
+package com.example.watermore.database;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
-import org.threeten.bp.OffsetDateTime;
-
-import java.util.HashMap;
 import java.util.List;
 
 @androidx.room.Dao
