@@ -146,6 +146,7 @@
         android:layout_height="50dp"
         android:background="@drawable/attemptrec"
         android:fontFamily="@font/segoesemibold"
+        android:onClick="onSave"
         android:text="@string/save"
         android:textSize="18dp"
         app:backgroundTint="@color/wblue"

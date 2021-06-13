@@ -20,28 +20,6 @@ SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy");
     public String getFormattedValue(float value) {
         String dateString= formatter.format(value);
         return dateString;
-     /*   if (value>999){
-            return String.valueOf(Math.floor(value)).substring(2)+"/"+String.valueOf(value).substring(0,2);
-        }else{
-            return String.valueOf(Math.floor(value)).substring(1)+"/"+String.valueOf(value).substring(0,1);
-        }
-*/
-        /*
-        if (value>999){
-            return String.valueOf(Math.floor(value)).substring(2).replace(".0","")+"/"+String.valueOf(value).substring(0,2);
-        }else{
-            if(value%100>31){
-                return "0";
-            }else{
-                if(String.valueOf(value).charAt(1)=='0'){
-                    return String.valueOf((int)value).substring(2).replace(".0","")+"/"+String.valueOf(value).substring(0,1);
-                }else{
-                    return String.valueOf((int)value).substring(1).replace(".0","")+"/"+String.valueOf(value).substring(0,1);
-                }
-            }
-*/
-
-
         }
     }
 
