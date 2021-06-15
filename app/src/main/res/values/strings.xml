@@ -27,6 +27,7 @@
     <string name="dusk">Dusk</string>
     <string name="evening">Evening</string>
     <string name="night">Night</string>
+    <string name="saveToast">Your choice has been saved</string>
 
     <!--health stats -->
     <string name="mainmenu">Main Menu</string>
@@ -47,8 +48,24 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="title_activity_fullscreen_splash">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
+    <!--graphic activity-->
+    <string name="drunk">Drunk</string>
+    <string name="minweight">Minimum Weight</string>
+    <string name="maxweight">Maximum Weight</string>
+
+    <!--graphic adapter-->
+    <string name="drunktime">Water Drunk - Time</string>
+    <string name="weighttime">Weight - Time</string>
+    <string name="bmitime">Body Mass Index - Time</string>
+    <string name="descriptionWeight">Milliliter - Day</string>
+    <string name="descriptionDrunk">Kilogram - Day</string>
+    <string name="descriptionbmi">Bmi - Day</string>
+    <string name="bmiuplimit">Overweight</string>
+    <string name="bmidownlimit">Underweight</string>
+
+
+
 
 </resources>

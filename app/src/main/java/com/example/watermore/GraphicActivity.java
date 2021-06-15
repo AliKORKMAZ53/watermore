@@ -49,6 +49,7 @@ public class GraphicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_graphic);
         recyclerView=findViewById(R.id.recyclerView);
 
+
         Intent intent=getIntent();
         age=intent.getIntExtra("age",0);
         Utils.init(getApplicationContext());
@@ -89,12 +90,12 @@ public class GraphicActivity extends AppCompatActivity {
             LineData minmaxWeightlineData=new LineData();
             LineData bmiData=new LineData();
 
-            LineDataSet drunk=new LineDataSet(entries2,"Drunk");
-            LineDataSet goal=new LineDataSet(entries5,"Goal");
-            LineDataSet weg=new LineDataSet(entries,"Weight");
-            LineDataSet minweg=new LineDataSet(entries3,"Minimum Weight");
-            LineDataSet maxweg=new LineDataSet(entries4,"Maximum Weight");
-            LineDataSet bmi=new LineDataSet(entries6,"Body Mass Index");
+            LineDataSet drunk=new LineDataSet(entries2,getResources().getString(R.string.drunk));
+            LineDataSet goal=new LineDataSet(entries5,getResources().getString(R.string.goal));
+            LineDataSet weg=new LineDataSet(entries,getResources().getString(R.string.weight));
+            LineDataSet minweg=new LineDataSet(entries3,getResources().getString(R.string.minweight));
+            LineDataSet maxweg=new LineDataSet(entries4,getResources().getString(R.string.maxweight));
+            LineDataSet bmi=new LineDataSet(entries6,getResources().getString(R.string.bmi));
 
                 bmi.setValueTextSize(13);
                 bmi.setValueTextColor(Color.CYAN);
@@ -196,11 +197,6 @@ public class GraphicActivity extends AppCompatActivity {
         }
 
     }
-    /*public int dayAndMonth(int month, int day){
-            month=month*100;
-
-        return  month+day;
-    }*/
 
 
 }

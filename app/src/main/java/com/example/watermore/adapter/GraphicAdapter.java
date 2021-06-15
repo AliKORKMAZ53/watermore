@@ -42,24 +42,23 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
 
     public GraphicAdapter(Context context, Integer[] bmiLimits){
         this.context=context;
-        titleText.add("Water Drunk - Time");
-        titleText.add("Weight - Time");
-        titleText.add("Body Mass Index - Time");
+        titleText.add(context.getResources().getString(R.string.drunktime));
+        titleText.add(context.getResources().getString(R.string.weighttime));
+        titleText.add(context.getResources().getString(R.string.bmitime));
         Description descriptionWeight=new Description();
         Description descriptionDrunk=new Description();
         Description descriptionBmi=new Description();
-        descriptionWeight.setText("Milliliter - Day of Month");
-        descriptionDrunk.setText("Kilogram - Day of Month");
-        descriptionBmi.setText("Bmi - Day of Month");
+        descriptionWeight.setText(context.getResources().getString(R.string.descriptionWeight));//
+        descriptionDrunk.setText(context.getResources().getString(R.string.descriptionDrunk));//These two might exchange
+        descriptionBmi.setText(context.getResources().getString(R.string.descriptionbmi));
         descriptionWeight.setTextColor(Color.YELLOW);
         descriptionDrunk.setTextColor(Color.YELLOW);
         descriptionBmi.setTextColor(Color.YELLOW);
         descriptions.add(descriptionWeight);
         descriptions.add(descriptionDrunk);
         descriptions.add(descriptionBmi);
-        Log.d("AGEE",Integer.toString(bmiLimits[0]));
-        bmiUpperLimitLine =new LimitLine(bmiLimits[1],"Overweight");
-        bmiDownLimitLine= new LimitLine(bmiLimits[0],"Underweight");
+        bmiUpperLimitLine =new LimitLine(bmiLimits[1],context.getResources().getString(R.string.bmiuplimit));
+        bmiDownLimitLine= new LimitLine(bmiLimits[0],context.getResources().getString(R.string.bmidownlimit));
         bmiUpperLimitLine.setLineWidth(5);
         bmiUpperLimitLine.setTextColor(Color.YELLOW);
         bmiDownLimitLine.setLineWidth(5);
@@ -70,7 +69,6 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.graph_item,parent,false);
-
         return new MyViewHolder(view);
     }
 
@@ -89,8 +87,6 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
        holder.lineChart.getXAxis().setLabelCount(lineDataList.get(position).getDataSets().get(0).getEntryCount(),true);
            // holder.lineChart.getXAxis().mAxisRange=6;//will be tested
 
-
-
         holder.lineChart.getAxisLeft().setTextColor(Color.YELLOW);
         holder.lineChart.getLegend().setTextColor(Color.YELLOW);
         //holder.lineChart.getLegend().setDirection(Legend.LegendDirection.RIGHT_TO_LEFT);
@@ -106,7 +102,6 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
 
     @Override
     public int getItemCount() throws NegativeArraySizeException{
-        Log.d("graphicAdapter",Integer.toString(lineDataList.size()));
         return lineDataList.size();
     }
 

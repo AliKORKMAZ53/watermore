@@ -29,6 +29,7 @@
     <string name="dusk">Gün Batımı</string>
     <string name="evening">Akşam</string>
     <string name="night">Gece</string>
+    <string name="saveToast">Terchiniz Kaydedildi</string>
 
     <!--health stats -->
     <string name="mainmenu">Ana Menü</string>
@@ -46,4 +47,18 @@
     <string name="enteramount">Miktarı Buraya Girin:</string>
     <string name="example">Örneğin: 1350</string>
 
+    <!--graphic activity-->
+    <string name="drunk">İçilen Su</string>
+    <string name="minweight">Kilo Alt Sınır</string>
+    <string name="maxweight">Kilo Üst Sınır</string>
+
+    <!--graphic adapter-->
+    <string name="drunktime">İçilen Su - Zaman</string>
+    <string name="weighttime">Kilo - Zaman</string>
+    <string name="bmitime">Vücut Kitle Endeksi - Zaman</string>
+    <string name="descriptionWeight">Kilogram - Gün</string>
+    <string name="descriptionDrunk">Mililitre - Gün</string>
+    <string name="descriptionbmi">Vki - Gün</string>
+    <string name="bmiuplimit">Kilolu</string>
+    <string name="bmidownlimit">Zayıf</string>
 </resources>

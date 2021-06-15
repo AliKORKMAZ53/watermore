@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.watermore.utils.Constants;
 import com.example.watermore.utils.MyNotificationPublisher;
+import com.google.android.gms.common.internal.Objects;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import org.threeten.bp.OffsetDateTime;
@@ -340,6 +341,7 @@ public class ReminderScreen extends AppCompatActivity {
     public void onSave(View view) {
         updateLabel();
         returnMainPage();
+        Toast.makeText(this,getResources().getString(R.string.saveToast),Toast.LENGTH_LONG).show();
         finish();
     }
 
