@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.watermore.database.UserTable;
 import com.example.watermore.utils.Calculations;
@@ -26,6 +27,7 @@ import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import org.threeten.bp.OffsetDateTime;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -144,9 +146,10 @@ public class LauncherActivity extends AppCompatActivity {
             kilos.add(a);
         }
         ArrayAdapter<String> weightArrayAdapter = new ArrayAdapter(this, R.layout.lilspinners, kilos);
-        weightArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        weightArrayAdapter.setDropDownViewResource(R.layout.lilspinnerdropdown);
         spinnerweight.setAdapter(weightArrayAdapter);
 
+        
         List<String> heights = new ArrayList<>();
         heights.add("-");
         for(height = 125; height <= 210; height++) {
@@ -154,7 +157,7 @@ public class LauncherActivity extends AppCompatActivity {
             heights.add(a);
         }
         ArrayAdapter<String> heightArrayAdapter = new ArrayAdapter(this, R.layout.lilspinners, heights);
-        heightArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        heightArrayAdapter.setDropDownViewResource(R.layout.lilspinnerdropdown);
         spinnerheight.setAdapter(heightArrayAdapter);
 
         List<String> years = new ArrayList<>();
@@ -164,7 +167,7 @@ public class LauncherActivity extends AppCompatActivity {
             years.add(a);
         }
         ArrayAdapter<String> ageArrayAdapter = new ArrayAdapter(this, R.layout.lilspinners, years);
-        ageArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ageArrayAdapter.setDropDownViewResource(R.layout.lilspinnerdropdown);
         spinnerage.setAdapter(ageArrayAdapter);
         //spinnerdan veri select edilince değişi
         spinnerweight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

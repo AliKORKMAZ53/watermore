@@ -7,113 +7,123 @@
     android:background="@drawable/pop_bg"
     tools:context=".AddWaterPopScreen">
 
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="223dp"
         android:layout_height="78dp"
         android:fontFamily="@font/segoesemibold"
         android:gravity="center"
-        android:text="Porsiyon Seçiniz"
+        android:text="@string/portion"
         android:textColor="@color/black"
         android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027" />
-
+        app:layout_constraintVertical_bias="0.062" />
 
     <ImageView
         android:id="@+id/tearec"
         android:layout_width="88dp"
         android:layout_height="108dp"
         android:background="@drawable/emptyrec"
+        android:onClick="OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintEnd_toStartOf="@+id/glassrec"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.054" />
 
     <ImageView
         android:id="@+id/cuprec"
         android:layout_width="88dp"
         android:layout_height="108dp"
         android:background="@drawable/emptyrec"
+        android:onClick="OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintHorizontal_bias="0.635"
+        app:layout_constraintStart_toEndOf="@+id/glassrec"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.054" />
 
     <ImageView
         android:id="@+id/glassrec"
         android:layout_width="88dp"
         android:layout_height="108dp"
         android:background="@drawable/emptyrec"
+        android:onClick="OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.054" />
 
     <ImageView
         android:id="@+id/kartonrec"
         android:layout_width="88dp"
         android:layout_height="108dp"
         android:background="@drawable/emptyrec"
+        android:onClick="OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintEnd_toStartOf="@+id/siserec"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451" />
+        app:layout_constraintTop_toBottomOf="@+id/tearec"
+        app:layout_constraintVertical_bias="0.125" />
 
     <ImageView
         android:id="@+id/siserec"
         android:layout_width="88dp"
         android:layout_height="108dp"
         android:background="@drawable/emptyrec"
+        android:onClick="OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.453" />
+        app:layout_constraintTop_toBottomOf="@+id/glassrec"
+        app:layout_constraintVertical_bias="0.125" />
 
     <ImageView
         android:id="@+id/surahirec"
         android:layout_width="88dp"
         android:layout_height="108dp"
         android:background="@drawable/emptyrec"
+        android:onClick="OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451" />
+        app:layout_constraintHorizontal_bias="0.635"
+        app:layout_constraintStart_toEndOf="@+id/siserec"
+        app:layout_constraintTop_toBottomOf="@+id/cuprec"
+        app:layout_constraintVertical_bias="0.125" />
+
 
     <ImageView
         android:id="@+id/muslukrec"
         android:layout_width="88dp"
         android:layout_height="108dp"
         android:background="@drawable/emptyrec"
+        android:onClick="OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintTop_toBottomOf="@+id/kartonrec"
+        app:layout_constraintVertical_bias="0.301" />
 
-
-    <ImageView
+    <TextView
         android:id="@+id/teaolcu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/teaolcu"
+        android:layout_width="88dp"
+        android:layout_height="40dp"
+        android:onClick="OnClick"
+        android:text="Çay Bardağı 100 mL"
+        android:gravity="center"
+        android:fontFamily="@font/segoesemibold"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tearec"
         app:layout_constraintEnd_toEndOf="@+id/tearec"
         app:layout_constraintHorizontal_bias="0.0"
@@ -123,6 +133,7 @@
 
     <ImageView
         android:id="@+id/tea"
+        android:onClick="OnClick"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:src="@drawable/tea"
@@ -133,12 +144,15 @@
         app:layout_constraintTop_toTopOf="@+id/tearec"
         app:layout_constraintVertical_bias="0.126" />
 
-    <ImageView
+    <TextView
         android:id="@+id/glassolcu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="88dp"
+        android:layout_height="40dp"
+        android:text="Su Bardağı 200 mL"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/segoesemibold"
         android:layout_marginTop="4dp"
-        android:background="@drawable/bardakolcu"
         app:layout_constraintBottom_toBottomOf="@+id/glassrec"
         app:layout_constraintEnd_toEndOf="@+id/glassrec"
         app:layout_constraintStart_toStartOf="@+id/glassrec"
@@ -158,12 +172,15 @@
         app:layout_constraintTop_toTopOf="@+id/glassrec"
         app:layout_constraintVertical_bias="0.126" />
 
-    <ImageView
+    <TextView
         android:id="@+id/cupolcu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:text="Kupa 300 mL"
+        android:gravity="center"
+        android:fontFamily="@font/segoesemibold"
         android:layout_marginTop="4dp"
-        android:background="@drawable/cupolcu"
         app:layout_constraintBottom_toBottomOf="@+id/cuprec"
         app:layout_constraintEnd_toEndOf="@+id/cuprec"
         app:layout_constraintHorizontal_bias="0.578"
@@ -183,11 +200,14 @@
         app:layout_constraintTop_toTopOf="@+id/cuprec"
         app:layout_constraintVertical_bias="0.142" />
 
-    <ImageView
+    <TextView
         android:id="@+id/papercupolcu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/kartonolcu"
+        android:layout_width="88dp"
+        android:layout_height="40dp"
+        android:text="Karton Bar. 400 mL"
+        android:gravity="center"
+        android:fontFamily="@font/segoesemibold"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/kartonrec"
         app:layout_constraintEnd_toEndOf="@+id/kartonrec"
         app:layout_constraintHorizontal_bias="0.4"
@@ -208,11 +228,15 @@
         app:layout_constraintTop_toTopOf="@+id/kartonrec"
         app:layout_constraintVertical_bias="0.174" />
 
-    <ImageView
+    <TextView
         android:id="@+id/bottleolcu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bottleolcu"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Su Şişesi 500 mL"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/segoesemibold"
         app:layout_constraintBottom_toBottomOf="@+id/siserec"
         app:layout_constraintEnd_toEndOf="@+id/siserec"
         app:layout_constraintStart_toStartOf="@+id/siserec"
@@ -232,14 +256,17 @@
         app:layout_constraintTop_toTopOf="@+id/siserec"
         app:layout_constraintVertical_bias="0.086" />
 
-    <ImageView
+    <TextView
         android:id="@+id/surahiolcu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/surahiolcu"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:fontFamily="@font/segoesemibold"
+        android:gravity="center"
+        android:text="Sürahi 1000 mL"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/surahirec"
         app:layout_constraintEnd_toEndOf="@+id/surahirec"
-        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="@+id/surahirec"
         app:layout_constraintTop_toBottomOf="@+id/surahi"
         app:layout_constraintVertical_bias="0.0" />
@@ -252,16 +279,19 @@
         android:src="@drawable/surahi"
         app:layout_constraintBottom_toBottomOf="@+id/surahirec"
         app:layout_constraintEnd_toEndOf="@+id/surahirec"
-        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="@+id/surahirec"
         app:layout_constraintTop_toTopOf="@+id/surahirec"
         app:layout_constraintVertical_bias="0.174" />
 
-    <ImageView
+    <TextView
         android:id="@+id/binustu"
-        android:layout_width="wrap_content"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/binustu"
+        android:textColor="@color/black"
+        android:text="1000+ mL"
+        android:fontFamily="@font/segoesemibold"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/muslukrec"
         app:layout_constraintEnd_toEndOf="@+id/muslukrec"
         app:layout_constraintHorizontal_bias="0.7"
@@ -287,15 +317,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/binustugiris"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.642"
+        app:layout_constraintHorizontal_bias="0.679"
         app:layout_constraintStart_toEndOf="@+id/muslukrec"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintTop_toBottomOf="@+id/surahirec"
+        app:layout_constraintVertical_bias="0.411" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/binustuyazi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoesemibold"
@@ -310,10 +340,11 @@
         app:layout_constraintVertical_bias="0.22" />
 
     <EditText
+        android:id="@+id/binustuedit"
         android:layout_width="100dp"
         android:layout_height="25dp"
         android:background="@drawable/custom"
-        android:hint="Örneğin: 1350"
+        android:hint="@string/example"
         android:textSize="11dp"
         android:fontFamily="@font/segoesemibold"
         android:paddingStart="10dp"
@@ -325,7 +356,7 @@
         app:layout_constraintVertical_bias="0.67" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/binustuml"
         android:layout_width="29dp"
         android:layout_height="25dp"
         android:fontFamily="@font/segoesemibold"
@@ -339,6 +370,24 @@
         app:layout_constraintTop_toTopOf="@+id/binustugir"
         app:layout_constraintVertical_bias="0.67" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:background="@drawable/attemptrec"
+        android:fontFamily="@font/segoesemibold"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:onClick="onSavePortionClicked"
+        android:layout_marginBottom="5dp"
+        app:backgroundTint="@color/wblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

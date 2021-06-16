@@ -31,10 +31,10 @@
         android:background="@drawable/baslikcerceve"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.010" />
 
     <ImageView
         android:id="@+id/degerarka"
@@ -43,9 +43,10 @@
         android:background="@drawable/degercerceve"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.806" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/anaresim"
@@ -67,12 +68,12 @@
         android:text="@string/healthStatistics"
         android:textColor="@color/gray"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/degerarka"
+        app:layout_constraintTop_toTopOf="@+id/degerarka"
+        app:layout_constraintVertical_bias="0.053" />
 
     <TextView
         android:id="@+id/gsi"
@@ -82,12 +83,12 @@
         android:text="@string/dailywaterreq"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toEndOf="@+id/i6"
+        app:layout_constraintTop_toBottomOf="@+id/gpi"
+        app:layout_constraintVertical_bias="0.096" />
 
     <TextView
         android:id="@+id/ik"
@@ -97,12 +98,12 @@
         android:text="@string/idealweight"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.324"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toEndOf="@+id/i2"
+        app:layout_constraintTop_toBottomOf="@+id/vki"
+        app:layout_constraintVertical_bias="0.050" />
 
     <TextView
         android:id="@+id/gyi"
@@ -112,12 +113,12 @@
         android:text="@string/dailyfatreq"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.337"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.843" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toEndOf="@+id/i7"
+        app:layout_constraintTop_toBottomOf="@+id/gsi"
+        app:layout_constraintVertical_bias="0.197" />
 
     <TextView
         android:id="@+id/gpi"
@@ -127,12 +128,12 @@
         android:text="@string/dailyproteinreq"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toEndOf="@+id/i5"
+        app:layout_constraintTop_toBottomOf="@+id/bmh"
+        app:layout_constraintVertical_bias="0.102" />
 
     <TextView
         android:id="@+id/vkm"
@@ -142,12 +143,12 @@
         android:text="@string/bloodrate"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.242"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toEndOf="@+id/i3"
+        app:layout_constraintTop_toBottomOf="@+id/ik"
+        app:layout_constraintVertical_bias="0.050" />
 
     <TextView
         android:id="@+id/bmh"
@@ -157,12 +158,12 @@
         android:text="@string/basalmetabolicrate"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.346"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.583" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toEndOf="@+id/i4"
+        app:layout_constraintTop_toBottomOf="@+id/vkm"
+        app:layout_constraintVertical_bias="0.06" />
 
     <TextView
         android:id="@+id/vki"
@@ -172,96 +173,96 @@
         android:text="@string/bmitwodot"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toEndOf="@+id/i1"
+        app:layout_constraintTop_toBottomOf="@+id/baslik"
+        app:layout_constraintVertical_bias="0.042" />
 
     <ImageView
         android:id="@+id/i1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/measuring"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/degerarka"
+        app:layout_constraintTop_toTopOf="@+id/degerarka"
+        app:layout_constraintVertical_bias="0.169" />
 
     <ImageView
         android:id="@+id/i2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/kiloresim"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/degerarka"
+        app:layout_constraintTop_toBottomOf="@+id/i1"
+        app:layout_constraintVertical_bias="0.07" />
 
     <ImageView
         android:id="@+id/i3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bloodyhell"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.503" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/degerarka"
+        app:layout_constraintTop_toBottomOf="@+id/i2"
+        app:layout_constraintVertical_bias="0.07" />
 
     <ImageView
         android:id="@+id/i4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/metabolism"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/degerarka"
+        app:layout_constraintTop_toBottomOf="@+id/i3"
+        app:layout_constraintVertical_bias="0.084" />
 
     <ImageView
         android:id="@+id/i5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/protein"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.675" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/degerarka"
+        app:layout_constraintTop_toBottomOf="@+id/i4"
+        app:layout_constraintVertical_bias="0.123" />
 
     <ImageView
         android:id="@+id/i6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/gunluksu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.761" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/degerarka"
+        app:layout_constraintTop_toBottomOf="@+id/i5"
+        app:layout_constraintVertical_bias="0.133" />
 
     <ImageView
         android:id="@+id/i7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/oil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.844" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/degerarka"
+        app:layout_constraintTop_toBottomOf="@+id/i6"
+        app:layout_constraintVertical_bias="0.217" />
 
     <TextView
         android:id="@+id/bmitext"
@@ -271,12 +272,12 @@
         android:text="DEGER1"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.833"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toEndOf="@+id/vki"
+        app:layout_constraintTop_toTopOf="@+id/degerarka"
+        app:layout_constraintVertical_bias="0.169" />
 
     <TextView
         android:id="@+id/idealweighttext"
@@ -286,12 +287,12 @@
         android:text="DEGER2"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.416" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.886"
+        app:layout_constraintStart_toEndOf="@+id/ik"
+        app:layout_constraintTop_toBottomOf="@+id/bmitext"
+        app:layout_constraintVertical_bias="0.042" />
 
     <TextView
         android:id="@+id/bloodratetext"
@@ -301,12 +302,12 @@
         android:text="DEGER3"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/vkm"
+        app:layout_constraintTop_toBottomOf="@+id/idealweighttext"
+        app:layout_constraintVertical_bias="0.06" />
 
     <TextView
         android:id="@+id/basalmetatext"
@@ -316,12 +317,12 @@
         android:text="DEGER4"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toEndOf="@+id/bmh"
+        app:layout_constraintTop_toBottomOf="@+id/bloodratetext"
+        app:layout_constraintVertical_bias="0.064" />
 
     <TextView
         android:id="@+id/dailyproteintext"
@@ -331,12 +332,12 @@
         android:text="DEGER5"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintStart_toEndOf="@+id/gpi"
+        app:layout_constraintTop_toBottomOf="@+id/basalmetatext"
+        app:layout_constraintVertical_bias="0.102" />
 
     <TextView
         android:id="@+id/dailywatertext"
@@ -346,12 +347,12 @@
         android:text="DEGER6"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.787"
+        app:layout_constraintStart_toEndOf="@+id/gsi"
+        app:layout_constraintTop_toBottomOf="@+id/dailyproteintext"
+        app:layout_constraintVertical_bias="0.096" />
 
     <TextView
         android:id="@+id/dailyfattext"
@@ -361,10 +362,10 @@
         android:text="DEGER7"
         android:textColor="@color/gray"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.838"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.843" />
+        app:layout_constraintBottom_toBottomOf="@+id/degerarka"
+        app:layout_constraintEnd_toEndOf="@+id/degerarka"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/gyi"
+        app:layout_constraintTop_toBottomOf="@+id/dailywatertext"
+        app:layout_constraintVertical_bias="0.197" />
 </androidx.constraintlayout.widget.ConstraintLayout>

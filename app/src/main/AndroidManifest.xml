@@ -19,8 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tektek">
+        <activity android:name=".settings"></activity>
+        <activity android:name=".Donate" />
+        <activity android:name=".AboutUs" />
         <activity
-            android:name="com.example.watermore.FullscreenSplashActivity"
+            android:name=".FullscreenSplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Watermore"
             android:theme="@style/Theme.Tektek.Fullscreen">
@@ -30,24 +33,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.watermore.GraphicActivity" />
-        <activity android:name="com.example.watermore.ReminderScreen" />
-        <activity android:name="com.example.watermore.HealthStats" />
+        <activity android:name=".GraphicActivity" />
+        <activity android:name=".ReminderScreen" />
+        <activity android:name=".HealthStats" />
         <activity
-            android:name="com.example.watermore.usernamesPop"
+            android:name=".usernamesPop"
             android:theme="@style/PopMe" />
         <activity
-            android:name="com.example.watermore.AddWaterPopScreen"
+            android:name=".AddWaterPopScreen"
             android:theme="@style/PopMe" />
-        <activity android:name="com.example.watermore.MainPage"></activity>
-        <activity android:name="com.example.watermore.LauncherActivity">
-
-        </activity>
+        <activity
+            android:name=".MainPage"
+            android:launchMode="singleTask" />
+        <activity android:name=".LauncherActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <receiver android:name= ".utils.MyNotificationPublisher" />
+
+        <receiver android:name=".utils.MyNotificationPublisher" />
     </application>
 
 </manifest>

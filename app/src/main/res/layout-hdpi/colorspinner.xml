@@ -6,7 +6,7 @@
     android:text="Tryintext"
     android:textSize="14dp"
     android:textColor="@color/darkgray"
-    android:fontFamily="@font/segoesemibold"
+    android:fontFamily="@font/segoe400"
     >
 
 </CheckedTextView>

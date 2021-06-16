@@ -17,6 +17,8 @@ import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import org.threeten.bp.OffsetDateTime;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class MainPage extends AppCompatActivity {
 
     //boy-kilo girmeye geri gönderiyo
@@ -47,11 +49,13 @@ public class MainPage extends AppCompatActivity {
     TextView goalText;
     TextView droppercentage;
     int age;
+    GifImageView damlagif;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         //yukardaki metodları çalıştıracak butonlara girdim.
+        damlagif =findViewById(R.id.damla);
         Button updater;
         Button waterAdder;
         Button degerekran;
@@ -63,14 +67,14 @@ public class MainPage extends AppCompatActivity {
         droppercentage=findViewById(R.id.droppercentage);
 
         DbViewModel dbViewModel=new DbViewModel(this.getApplication());
-        dbViewModel.getLastDate().observe(this, response->{
+      /*  dbViewModel.getLastDate().observe(this, response->{
             if(response!=null){
                 isLastRecordToday= OffsetDateTime.now().getDayOfMonth()==
                         TiviTypeConverters.toOffsetDateTime(dbViewModel.getLastDate().getValue()).getDayOfMonth();
 
             }
 
-        });
+        });*/
         ImageView gender=findViewById(R.id.imageView13); //imageview13 -> gender view
         dbViewModel.getLastRecord().observe(this,response->{
 
@@ -78,7 +82,7 @@ public class MainPage extends AppCompatActivity {
               age=response.age;
               String trim = String.valueOf(((double) response.drunk / 1000) / response.goal);
               int stringsize = trim.length();
-              if(isLastRecordToday){
+              if(response.date.getDayOfYear()==OffsetDateTime.now().getDayOfYear()){
 
               if (stringsize > 3) {
                   trim = trim.substring(2, 4);
@@ -87,13 +91,26 @@ public class MainPage extends AppCompatActivity {
               } else {
                   trim = String.valueOf(0);
               }
-              if (((double) response.drunk / 1000) > response.goal) {
+              if (((double) response.drunk / 1000) >= response.goal) {
                   droppercentage.setText("%100");
+                  damlagif.setBackgroundResource(R.drawable.gif100);
               } else {
                   droppercentage.setText("%" + trim);
+                  if(Integer.valueOf(trim)>0&&Integer.valueOf(trim)<21){
+                      damlagif.setBackgroundResource(R.drawable.gif00);
+                  }else if(Integer.valueOf(trim)>20&&Integer.valueOf(trim)<41){
+                      damlagif.setBackgroundResource(R.drawable.gif20);
+                  }else if(Integer.valueOf(trim)>40&&Integer.valueOf(trim)<61){
+                      damlagif.setBackgroundResource(R.drawable.gif40);
+                  }else if(Integer.valueOf(trim)>60&&Integer.valueOf(trim)<81){
+                      damlagif.setBackgroundResource(R.drawable.gif60);
+                  }else if(Integer.valueOf(trim)>80&&Integer.valueOf(trim)<100){
+                      damlagif.setBackgroundResource(R.drawable.gif80);
+                  }
               }
           }else{
                   droppercentage.setText("%0");
+                  damlagif.setBackgroundResource(R.drawable.gif00);
               }
               bmiText.setText(String.valueOf(response.bmi)+" "+ getResources().getString(R.string.bmishort));
               goalText.setText(String.valueOf(String.format("%.2f", response.goal))+" L");

@@ -5,8 +5,8 @@
     android:paddingLeft="15dp"
     android:text="Tryintext"
     android:textSize="14dp"
-    android:textColor="@color/gray"
-    android:fontFamily="@font/segoesemibold"
+    android:textColor="@color/darkgray"
+    android:fontFamily="@font/segoe400"
     >
 
 </CheckedTextView>

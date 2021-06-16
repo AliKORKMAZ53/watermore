@@ -340,8 +340,8 @@ public class ReminderScreen extends AppCompatActivity {
 
     public void onSave(View view) {
         updateLabel();
-        returnMainPage();
         Toast.makeText(this,getResources().getString(R.string.saveToast),Toast.LENGTH_LONG).show();
+        returnMainPage();
         finish();
     }
 

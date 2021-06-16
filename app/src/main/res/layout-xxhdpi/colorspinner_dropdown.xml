@@ -4,8 +4,11 @@
     android:layout_height="wrap_content"
     android:text="Tryintext"
     android:textSize="15dp"
-    android:textColor="@color/gray"
-    android:fontFamily="@font/segoesemibold"
+    android:textColor="@color/black"
+    android:fontFamily="@font/segoe400"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="5dp"
     >
 
 </TextView>

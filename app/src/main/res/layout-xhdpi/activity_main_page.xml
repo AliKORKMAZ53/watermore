@@ -10,42 +10,75 @@
     tools:context=".MainPage">
 
 
-    <ImageView
-        android:layout_width="107dp"
-        android:layout_height="147dp"
-        android:background="@drawable/damla"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/damla"
+        android:layout_width="117dp"
+        android:layout_height="146dp"
+        android:background="@drawable/gif00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.049" />
 
-        />
+    <TextView
+        android:id="@+id/droppercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesemibold"
+        android:text="%0"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/addwater"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/damla"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.611"
+        android:layout_marginLeft="25dp"/>
+
+    <TextView
+        android:id="@+id/waytogoal"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:fontFamily="@font/segoesemibold"
+        android:text="mütişsin ulan adam gibi adamsın"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/weatherbutton"
+        app:layout_constraintEnd_toStartOf="@+id/damla"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.636"
+        android:layout_marginRight="15dp"/>
 
     <ImageView
-        android:id="@+id/welcomeView"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:id="@+id/weatherbutton"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:background="@drawable/weaterbutton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintBottom_toTopOf="@+id/reminderbig"
+        app:layout_constraintEnd_toStartOf="@+id/addwater"
+        app:layout_constraintHorizontal_bias="0.983"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintTop_toTopOf="@+id/damla"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoesemibold"
-        android:text="Last Pussy Slayer"
+        android:text="Gender"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="11dp"
-        app:layout_constraintBottom_toBottomOf="@+id/welcomeView"
-        app:layout_constraintEnd_toEndOf="@+id/welcomeView"
-        app:layout_constraintStart_toStartOf="@+id/welcomeView"
-        app:layout_constraintTop_toTopOf="@+id/welcomeView"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/weatherbutton"
+        app:layout_constraintEnd_toEndOf="@+id/weatherbutton"
+        app:layout_constraintStart_toStartOf="@+id/weatherbutton"
+        app:layout_constraintTop_toTopOf="@+id/weatherbutton"
         app:layout_constraintVertical_bias="0.377" />
 
     <TextView
@@ -55,12 +88,12 @@
         android:fontFamily="@font/segoesemibold"
         android:text="@string/welcome"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/welcomeView"
-        app:layout_constraintEnd_toEndOf="@+id/welcomeView"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/weatherbutton"
+        app:layout_constraintEnd_toEndOf="@+id/weatherbutton"
         app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="@+id/welcomeView"
-        app:layout_constraintTop_toTopOf="@+id/welcomeView"
+        app:layout_constraintStart_toStartOf="@+id/weatherbutton"
+        app:layout_constraintTop_toTopOf="@+id/weatherbutton"
         app:layout_constraintVertical_bias="0.161" />
 
     <ImageView
@@ -68,25 +101,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/man"
-        app:layout_constraintBottom_toBottomOf="@+id/welcomeView"
-        app:layout_constraintEnd_toEndOf="@+id/welcomeView"
+        app:layout_constraintBottom_toBottomOf="@+id/weatherbutton"
+        app:layout_constraintEnd_toEndOf="@+id/weatherbutton"
         app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="@+id/welcomeView"
-        app:layout_constraintTop_toTopOf="@+id/welcomeView"
+        app:layout_constraintStart_toStartOf="@+id/weatherbutton"
+        app:layout_constraintTop_toTopOf="@+id/weatherbutton"
         app:layout_constraintVertical_bias="0.700
 " />
 
     <ImageView
         android:id="@+id/addwater"
-        android:layout_width="220dp"
-        android:layout_height="125dp"
+        android:layout_width="205dp"
+        android:layout_height="110dp"
         android:background="@drawable/addwaterbigbutton"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/goalrec"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintHorizontal_bias="0.753"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintTop_toBottomOf="@+id/damla"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/addwaterbutton"
@@ -138,7 +171,7 @@
         android:fontFamily="@font/segoesemibold"
         android:text="@string/addwater"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="18dp"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/addwater"
         app:layout_constraintEnd_toEndOf="@+id/addwater"
         app:layout_constraintHorizontal_bias="0.166"
@@ -148,15 +181,15 @@
 
     <ImageView
         android:id="@+id/reminderbig"
-        android:layout_width="220dp"
-        android:layout_height="125dp"
+        android:layout_width="205dp"
+        android:layout_height="110dp"
         android:background="@drawable/reminderbuttonbig"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintBottom_toTopOf="@+id/bmirec"
+        app:layout_constraintEnd_toStartOf="@+id/goalrec"
+        app:layout_constraintHorizontal_bias="0.983"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -164,7 +197,7 @@
         android:fontFamily="@font/segoesemibold"
         android:text="@string/addreminder"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="15dp"
+        android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/reminderbig"
         app:layout_constraintEnd_toEndOf="@+id/reminderbig"
         app:layout_constraintHorizontal_bias="0.201"
@@ -206,15 +239,15 @@
 
     <ImageView
         android:id="@+id/goalrec"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:background="@drawable/goalrec"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/histories"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -234,13 +267,13 @@
         android:fontFamily="@font/segoesemibold"
         android:text="@string/goal"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="14dp"
+        android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/goalrec"
         app:layout_constraintEnd_toEndOf="@+id/goalrec"
-        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/goalrec"
         app:layout_constraintTop_toTopOf="@+id/goalrec"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintVertical_bias="0.275" />
 
     <TextView
         android:id="@+id/goalwatertext"
@@ -249,7 +282,7 @@
         android:fontFamily="@font/segoesemibold"
         android:text="GOAL"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="20dp"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="@+id/goalrec"
         app:layout_constraintEnd_toEndOf="@+id/goalrec"
         app:layout_constraintHorizontal_bias="0.484"
@@ -259,16 +292,16 @@
 
     <ImageView
         android:id="@+id/bmirec"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:layout_gravity="center"
         android:background="@drawable/bmirec"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintBottom_toTopOf="@+id/updates"
+        app:layout_constraintEnd_toStartOf="@+id/histories"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.732" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:layout_width="38dp"
@@ -301,7 +334,7 @@
         android:layout_width="68dp"
         android:layout_height="22dp"
         android:fontFamily="@font/segoesemibold"
-        android:text="31.75 vki"
+        android:text="0 vki"
         android:textAllCaps="false"
         android:textColor="@color/mainscreentextcolor"
         android:textSize="15dp"
@@ -314,15 +347,15 @@
 
     <ImageView
         android:id="@+id/histories"
-        android:layout_width="220dp"
-        android:layout_height="125dp"
+        android:layout_width="205dp"
+        android:layout_height="110dp"
         android:background="@drawable/historybig"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/statrec"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintHorizontal_bias="0.747"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.732" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -336,7 +369,7 @@
         app:layout_constraintVertical_bias="0.322" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/degers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/showhistorybutton"
@@ -362,7 +395,7 @@
         android:text="@string/healthStatistics"
         android:textAllCaps="false"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="15dp"
+        android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/histories"
         app:layout_constraintEnd_toEndOf="@+id/histories"
         app:layout_constraintHorizontal_bias="0.24"
@@ -372,15 +405,14 @@
 
     <ImageView
         android:id="@+id/updates"
-        android:layout_width="220dp"
-        android:layout_height="125dp"
+        android:layout_width="205dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="508dp"
         android:background="@drawable/updatebig"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintEnd_toStartOf="@+id/statrec"
+        app:layout_constraintHorizontal_bias="0.983"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/updatevalues"
@@ -422,7 +454,7 @@
         android:text="@string/updateValues"
         android:textAllCaps="false"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="14dp"
+        android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/updates"
         app:layout_constraintEnd_toEndOf="@+id/updates"
         app:layout_constraintHorizontal_bias="0.236"
@@ -432,15 +464,14 @@
 
     <ImageView
         android:id="@+id/statrec"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="508dp"
         android:background="@drawable/lilrecstat"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
@@ -450,7 +481,7 @@
         android:text="@string/graphs"
         android:textAllCaps="false"
         android:textColor="@color/mainscreentextcolor"
-        android:textSize="12sp"
+        android:textSize="11dp"
         app:layout_constraintBottom_toBottomOf="@+id/statrec"
         app:layout_constraintEnd_toEndOf="@+id/statrec"
         app:layout_constraintHorizontal_bias="0.500"
@@ -460,8 +491,8 @@
 
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/vaccination"
         app:layout_constraintBottom_toBottomOf="@+id/statrec"
         app:layout_constraintEnd_toEndOf="@+id/statrec"
