@@ -21,13 +21,13 @@ public class FullscreenSplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fullscreen_splash);
         dbViewModel=new DbViewModel(getApplication());
         Intent intentMain=new Intent(this,MainPage.class);
-        Intent intentAddWater=new Intent(this,LauncherActivity.class);
+        Intent usernamesActivity=new Intent(this,usernamesPop.class);
         Handler handler=new Handler();
 
         dbViewModel.getLastRecord().observe(this,response->{
             handler.postDelayed(() -> {
                 if(response==null){
-                    startActivity(intentAddWater);
+                    startActivity(usernamesActivity);
                 }else{
                     startActivity(intentMain);
                 }

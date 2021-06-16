@@ -1,5 +1,6 @@
 package com.example.watermore;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,11 @@ import android.widget.Toast;
 import com.example.watermore.utils.Constants;
 import com.example.watermore.utils.TiviTypeConverters;
 import com.example.watermore.viewmodel.DbViewModel;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import org.threeten.bp.OffsetDateTime;
@@ -54,8 +60,25 @@ public class MainPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
+
+            }
+        });//Ads initalize
         //yukardaki metodları çalıştıracak butonlara girdim.
         damlagif =findViewById(R.id.damla);
+        AdView adView=findViewById(R.id.adView);
+        AdRequest adRequest=new AdRequest.Builder()
+                .build();
+
+        if(adRequest.isTestDevice(getApplicationContext())){
+            Toast.makeText(this,"test for ad",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this,"no test for ad",Toast.LENGTH_SHORT).show();
+        }
+        adView.loadAd(adRequest);
+
         Button updater;
         Button waterAdder;
         Button degerekran;

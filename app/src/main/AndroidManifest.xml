@@ -19,6 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tektek">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9349705227439488~5211430390"/>
         <activity android:name=".settings"></activity>
         <activity android:name=".Donate" />
         <activity android:name=".AboutUs" />

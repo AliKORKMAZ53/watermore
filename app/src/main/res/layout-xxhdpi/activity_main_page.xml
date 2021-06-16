@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,6 +25,7 @@
         android:id="@+id/droppercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
         android:fontFamily="@font/segoesemibold"
         android:text="%0"
         android:textColor="@color/white"
@@ -35,25 +35,24 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/damla"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611"
-        android:layout_marginLeft="25dp"/>
+        app:layout_constraintVertical_bias="0.611" />
 
     <TextView
         android:id="@+id/waytogoal"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginRight="15dp"
         android:fontFamily="@font/segoesemibold"
+        android:gravity="center"
         android:text="mütişsin ulan adam gibi adamsın"
         android:textColor="@color/white"
         android:textSize="18dp"
-        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/weatherbutton"
         app:layout_constraintEnd_toStartOf="@+id/damla"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.636"
-        android:layout_marginRight="15dp"/>
+        app:layout_constraintVertical_bias="0.636" />
 
     <ImageView
         android:id="@+id/weatherbutton"
@@ -154,6 +153,7 @@
         app:layout_constraintVertical_bias="0.493" />
 
     <ImageView
+        android:id="@+id/imageView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/plus"
@@ -192,6 +192,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoesemibold"
@@ -250,6 +251,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/hedefs"
@@ -304,6 +306,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
+        android:id="@+id/imageView10"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:background="@drawable/scales"
@@ -315,6 +318,7 @@
         app:layout_constraintVertical_bias="0.436" />
 
     <TextView
+        android:id="@+id/textView10"
         android:layout_width="62dp"
         android:layout_height="40dp"
         android:fontFamily="@font/segoesemibold"
@@ -358,6 +362,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
+        android:id="@+id/imageView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/healthstats"
@@ -389,6 +394,7 @@
         app:layout_constraintVertical_bias="0.927" />
 
     <TextView
+        android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoesemibold"
@@ -520,5 +526,20 @@
         app:layout_constraintStart_toStartOf="@+id/statrec"
         app:layout_constraintTop_toTopOf="@+id/statrec"
         app:layout_constraintVertical_bias="0.888" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.gms.ads.AdView>
+    <!--ADUNITID DEGISECEK SIMDIKI TEST ID -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
