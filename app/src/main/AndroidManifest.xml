@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.watermore">
+    package="com.miragesw.watermore">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -18,35 +18,35 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Tektek">
+        android:theme="@style/Theme.Watermore">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-9349705227439488~5211430390"/>
-        <activity android:name=".settings"></activity>
-        <activity android:name=".Donate" />
-        <activity android:name=".AboutUs" />
+        <activity android:name="com.miragesw.watermore.settings"></activity>
+        <activity android:name="com.miragesw.watermore.Donate" />
+        <activity android:name="com.miragesw.watermore.AboutUs" />
         <activity
-            android:name=".FullscreenSplashActivity"
+            android:name="com.miragesw.watermore.FullscreenSplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Watermore"
-            android:theme="@style/Theme.Tektek.Fullscreen">
+            android:theme="@style/Theme.Watermore.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GraphicActivity" />
-        <activity android:name=".ReminderScreen" />
-        <activity android:name=".HealthStats" />
+        <activity android:name="com.miragesw.watermore.GraphicActivity" />
+        <activity android:name="com.miragesw.watermore.ReminderScreen" />
+        <activity android:name="com.miragesw.watermore.HealthStats" />
         <activity
-            android:name=".usernamesPop"
+            android:name="com.miragesw.watermore.usernamesPop"
             android:theme="@style/PopMe" />
         <activity
-            android:name=".AddWaterPopScreen"
+            android:name="com.miragesw.watermore.AddWaterPopScreen"
             android:theme="@style/PopMe" />
         <activity
-            android:name=".MainPage"
+            android:name="com.miragesw.watermore.MainPage"
             android:launchMode="singleTask" />
         <activity android:name=".LauncherActivity" />
 

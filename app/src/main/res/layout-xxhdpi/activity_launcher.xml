@@ -247,6 +247,7 @@
             android:paddingLeft="25dp"
             android:paddingBottom="10dp"
             android:text="@string/male"
+            android:onClick="onRadioButtonClicked"
             android:textColor="@color/white" />
 
         <RadioButton
@@ -260,6 +261,7 @@
             android:paddingLeft="25dp"
             android:paddingBottom="10dp"
             android:text="@string/female"
+            android:onClick="onRadioButtonClicked"
             android:textColor="@color/white" />
 
 
