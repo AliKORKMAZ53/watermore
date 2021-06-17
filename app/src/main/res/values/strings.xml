@@ -65,5 +65,22 @@
     <string name="bmiuplimit">Overweight</string>
     <string name="bmidownlimit">Underweight</string>
 
+    <!--username pop-->
+    <string name="characterLimit">User name length can not be more than 14 characters!</string>
+    <string name="characterEmpty">User name label can not be empty!</string>
 
+    <!---giris-slider -->
+    <string name="title1">What is Watermore?</string>
+    <string name="title2">EASY TO FOLLOW!</string>
+    <string name="title3">EASY TO USE!</string>
+    <string name="title4">INTERACTIVE AND FUNNY!</string>
+
+    <!---giris-slider descriptions -->
+    <string name="description1">Watermore is a software that calculates your body/health values as bmi, blood rate etc. by using general published formulas(that you can find on about us page.).</string>
+    <string name="description2">You can easily find the result that you are searching for in Watermore with colorful and understandable icons that we used in application!</string>
+    <string name="description3">By panels , which on main page, you can reach the operation that you want to do. As your choice you can add water to your waterdrop, you can set your reminders or you can check the graphics that we prepared for you and more!</string>
+    <string name="description4">We aimed you to have fun while you are checking your health stats. So we designed a little friend for you! While you trying to reach your daily goal and add water to your waterdrop , for each certain level it will have different facial expressions!</string>
+
+    <string name="sagakaydir">Swipe Right ->>></string>
+    <string name="entertheApp">Enter the app</string>
 </resources>

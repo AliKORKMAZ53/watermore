@@ -61,4 +61,23 @@
     <string name="descriptionbmi">Vki - Gün</string>
     <string name="bmiuplimit">Kilolu</string>
     <string name="bmidownlimit">Zayıf</string>
+
+    <!--username pop-->
+    <string name="characterLimit">Kullanıcı adınız 14 karakterden fazla olamaz!</string>
+    <string name="characterEmpty">Lütfen bir kullanıcı adı giriniz!</string>
+
+    <!---giris-slider -->
+    <string name="title1">Watermore nedir?</string>
+    <string name="title2">TAKİBİ KOLAY!</string>
+    <string name="title3">KULLANIMI KOLAY!</string>
+    <string name="title4">INTERAKTIF VE EĞLENCELİ!</string>
+
+    <!---giris-slider descriptions -->
+    <string name="description1">Watermore kilo, boy gibi bilgilerinizle günlük içmeniz gereken su, vücudunuzdaki kan miktarı, günlük protein veya yağ ihtiyacınızı genel ve yayınlanmış formuller(hakkımızda kısmından erişebilirsiniz) doğrultusunda hesaplayan ve bu bilgileri size sunan bir yazılımdır.</string>
+    <string name="description2">Watermore içerisinde kullandığımız renkli ve anlaşılır simgeler ile kolaylıkla değerlerinizdeki değişimi takip edebilirsiniz!</string>
+    <string name="description3">Ana sayfada görebileceğiniz paneller ile yapmak istediğiniz işleme kolayca erişin. Seçtiğiniz işleme göre damlanıza su ekleyebilir, hatırlatıcılarınızı ekleyip çıkartabilir veya ilerlemenizi görmek için sizin için hazırladığımız grafikleri inceleyebilirsiniz hatta daha fazlası!</string>
+    <string name="description4">Watermore içerisinde kullandığımız tasarım sayesinde değerlerinizi kontrol ederken eğlenmenizi de hedefliyoruz.Ve bu yüzden sizin için küçük bir arkadaş tasarladık! Her su içişinizde yaptığınız ekleme sayesinde hedefinize yaklaştıkça damlanızdaki değişimi fark edebilirsiniz!</string>
+
+    <string name="sagakaydir">Sağa Kaydır ->>></string>
+    <string name="entertheApp">Uygulamaya Geç</string>
 </resources>

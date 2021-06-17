@@ -62,33 +62,32 @@ public class MainPage extends AppCompatActivity {
     int age;
     GifImageView damlagif;
     TextView usernameTextView;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        SharedPreferences sharedPreferences=getSharedPreferences("username", Context.MODE_PRIVATE);
+        sharedPreferences=getSharedPreferences("routing", Context.MODE_PRIVATE);
+
+        //ADS
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
 
             }
-        });//Ads initalize
-        //yukardaki metodları çalıştıracak butonlara girdim.
-        damlagif =findViewById(R.id.damla);
+        });
+
         AdView adView=findViewById(R.id.adView);
         AdRequest adRequest=new AdRequest.Builder()
                 .build();
-
-        if(adRequest.isTestDevice(getApplicationContext())){
-            Toast.makeText(this,"test for ad",Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this,"no test for ad",Toast.LENGTH_SHORT).show();
-        }
         adView.loadAd(adRequest);
+        //ADS END
 
         usernameTextView=findViewById(R.id.textView11);
         usernameTextView.setText(sharedPreferences.getString("usernameKey","Kullanıcı"));
 
+
+        damlagif =findViewById(R.id.damla);
         Button graphicshowbutton=findViewById(R.id.graphicShowButton);
         AndroidThreeTen.init(getApplication());
         bmiText=findViewById(R.id.bmitextmainpage);

@@ -11,7 +11,7 @@ import android.text.TextWatcher;
 
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
 
 
 public class usernamesPop extends AppCompatActivity {
@@ -26,8 +26,10 @@ public class usernamesPop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent mainPageIntent=new Intent(this,MainPage.class);
         Intent LauncherActIntent=new Intent(this,LauncherActivity.class);
-        sharedPreferences=getSharedPreferences("username", Context.MODE_PRIVATE);
+        sharedPreferences=getSharedPreferences("routing", Context.MODE_PRIVATE);
         setContentView(R.layout.activity_usernames_pop);
+
+
         usernameEdit=findViewById(R.id.enterusername);
         btnSave=findViewById(R.id.saveusername);
         username=sharedPreferences.getString("usernameKey","null");
@@ -57,9 +59,18 @@ public class usernamesPop extends AppCompatActivity {
         });
 
         btnSave.setOnClickListener(v -> {
-            sharedPreferences.edit().putString("usernameKey",username);
-            startActivity(LauncherActIntent);
-            finish();
+            if(username.length()>14){
+                Toast.makeText(this,R.string.characterLimit,Toast.LENGTH_LONG).show();
+            }else if(username.length()==0){
+                Toast.makeText(this,R.string.characterEmpty,Toast.LENGTH_LONG).show();
+            }
+            else{
+                SharedPreferences.Editor usernameKey = sharedPreferences.edit().putString("usernameKey", username);
+                usernameKey.apply();
+                startActivity(LauncherActIntent);
+                finish();
+            }
+
         });
 
     }
