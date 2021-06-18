@@ -23,11 +23,16 @@ public class SliderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_slider);
         usernamepopIntent=new Intent(this,usernamesPop.class);
 
-
-
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         myadapter = new SlideAdapter(getApplication());
         viewPager.setAdapter(myadapter);
+
+        myadapter.checkButtonClicked().observe(this,response->{
+            if(response==true){
+                startActivity(usernamepopIntent);
+            }
+        });
+
     }
 
 }

@@ -29,7 +29,7 @@
     <string name="dusk">Gün Batımı</string>
     <string name="evening">Akşam</string>
     <string name="night">Gece</string>
-    <string name="saveToast">Terchiniz Kaydedildi</string>
+    <string name="saveToast">Tercihiniz Kaydedildi</string>
 
     <!--health stats -->
     <string name="mainmenu">Ana Menü</string>

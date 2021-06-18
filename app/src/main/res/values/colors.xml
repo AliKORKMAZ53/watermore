@@ -15,7 +15,7 @@
     <color name="inv">#00F10606</color>
     <color name="mainscreentextcolor">#10088A</color>
     <color name="popstart">#DFFCFE</color>
-    <color name="popend">#F205EDDA</color>
+    <color name="popend">#05EDDA</color>
     <color name="noblack">#0F000000</color>
     <color name="transparent">#00000000</color>
     <color name="light_blue_600">#FF039BE5</color>
@@ -23,4 +23,6 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="graphbackstart">#FCCE3A</color>
+    <color name="graphbackend">#FF3A3A</color>
 </resources>

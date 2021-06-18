@@ -92,37 +92,38 @@ public class GraphicActivity extends AppCompatActivity {
             LineDataSet maxweg=new LineDataSet(entries4,getResources().getString(R.string.maxweight));
             LineDataSet bmi=new LineDataSet(entries6,getResources().getString(R.string.bmi));
 
+
                 bmi.setValueTextSize(13);
-                bmi.setValueTextColor(Color.CYAN);
-                bmi.setColor(Color.CYAN);
-                bmi.setCircleColor(Color.BLACK);
-                bmi.setCircleHoleColor(Color.RED);
+                bmi.setValueTextColor(Color.GREEN);
+                bmi.setColor(Color.GREEN);
+                bmi.setCircleColor(Color.GREEN);
+                bmi.setCircleHoleColor(Color.WHITE);
 
 
                 drunk.setValueTextSize(12);
                 drunk.setValueTextColor(Color.CYAN);
                 drunk.setColor(Color.CYAN);
-                drunk.setCircleColor(Color.BLACK);
-                drunk.setCircleHoleColor(Color.RED);
+                drunk.setCircleColor(Color.CYAN);
+                drunk.setCircleHoleColor(Color.WHITE);
 
 
-            goal.setValueTextSize(10);
-            goal.setColor(Color.RED);
-            goal.setValueTextColor(Color.RED);
+                goal.setValueTextSize(10);
+                goal.setColor(Color.GREEN);
+                goal.setValueTextColor(Color.GREEN);
 
-            weg.setValueTextSize(12);
-            weg.setValueTextColor(Color.CYAN);
-            weg.setColor(Color.CYAN);
-            weg.setCircleColor(Color.BLACK);
-            weg.setCircleHoleColor(Color.RED);
+                weg.setValueTextSize(12);
+                weg.setValueTextColor(Color.CYAN);
+                weg.setColor(Color.CYAN);
+                weg.setCircleColor(Color.WHITE);
+                weg.setCircleHoleColor(Color.WHITE);
 
-            minweg.setValueTextSize(10);
-            minweg.setColor(Color.RED);
-            minweg.setValueTextColor(Color.RED);
+                minweg.setValueTextSize(10);
+                minweg.setColor(Color.BLUE);
+                minweg.setValueTextColor(Color.BLUE);
 
-            maxweg.setValueTextSize(10);
-            maxweg.setColor(Color.RED);
-            maxweg.setValueTextColor(Color.RED);
+                maxweg.setValueTextSize(10);
+                maxweg.setColor(Color.BLUE);
+                maxweg.setValueTextColor(Color.BLUE);
 
             bmiData.addDataSet(bmi);
 

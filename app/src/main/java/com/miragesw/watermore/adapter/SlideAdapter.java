@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.miragesw.watermore.R;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 public class SlideAdapter extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
+    public static MutableLiveData<Boolean> isButtonClicked=new MutableLiveData<>();
 
     Intent intent;
     // list of images
@@ -58,6 +61,7 @@ public class SlideAdapter extends PagerAdapter {
         lst_description.add(context.getResources().getString(R.string.description3));
         lst_description.add(context.getResources().getString(R.string.description4));
 
+        isButtonClicked.setValue(false);
         intent=new Intent(context,usernamesPop.class);
     }
 
@@ -87,8 +91,8 @@ public class SlideAdapter extends PagerAdapter {
             swipeBut.setBackgroundColor(Color.TRANSPARENT);
         }else if(position==3){
             swipeBut.setText(context.getString(R.string.entertheApp));
-            swipeBut.setOnClickListener(v->{
-                context.startActivity(intent);
+            swipeBut.setOnClickListener(v -> {
+                isButtonClicked.setValue(true);
             });
 
         }
@@ -100,4 +104,9 @@ public class SlideAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout)object);
     }
+    public LiveData<Boolean> checkButtonClicked(){
+        return isButtonClicked;
+    }
+
+
 }

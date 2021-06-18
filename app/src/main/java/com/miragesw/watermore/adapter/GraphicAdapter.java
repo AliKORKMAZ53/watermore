@@ -45,18 +45,18 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
         descriptionWeight.setText(context.getResources().getString(R.string.descriptionWeight));//
         descriptionDrunk.setText(context.getResources().getString(R.string.descriptionDrunk));//These two might exchange
         descriptionBmi.setText(context.getResources().getString(R.string.descriptionbmi));
-        descriptionWeight.setTextColor(Color.YELLOW);
-        descriptionDrunk.setTextColor(Color.YELLOW);
-        descriptionBmi.setTextColor(Color.YELLOW);
+        descriptionWeight.setTextColor(Color.WHITE);
+        descriptionDrunk.setTextColor(Color.WHITE);
+        descriptionBmi.setTextColor(Color.WHITE);
         descriptions.add(descriptionWeight);
         descriptions.add(descriptionDrunk);
         descriptions.add(descriptionBmi);
         bmiUpperLimitLine =new LimitLine(bmiLimits[1],context.getResources().getString(R.string.bmiuplimit));
         bmiDownLimitLine= new LimitLine(bmiLimits[0],context.getResources().getString(R.string.bmidownlimit));
         bmiUpperLimitLine.setLineWidth(5);
-        bmiUpperLimitLine.setTextColor(Color.YELLOW);
+        bmiUpperLimitLine.setTextColor(Color.WHITE);
         bmiDownLimitLine.setLineWidth(5);
-        bmiDownLimitLine.setTextColor(Color.YELLOW);
+        bmiDownLimitLine.setTextColor(Color.WHITE);
     }
 
     @NonNull
@@ -71,20 +71,20 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
         holder.lineChart.setData(lineDataList.get(position));
         holder.lineChart.setDescription(descriptions.get(position));
         holder.titleText.setText(titleText.get(position));
-        holder.titleText.setTextColor(Color.YELLOW);
-        holder.lineChart.setBackgroundColor(Color.BLACK);
-        holder.lineChart.getXAxis().setTextColor(Color.YELLOW);
+        holder.titleText.setTextColor(Color.WHITE);
+        holder.lineChart.setBackgroundColor(Color.TRANSPARENT);
+        holder.lineChart.getXAxis().setTextColor(Color.WHITE);
         //holder.lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         holder.lineChart.getXAxis().setValueFormatter(new MyAxisFormatter());
         holder.lineChart.getXAxis().setGranularity(1);
         //holder.lineChart.getXAxis().setAxisMaximum();
-       holder.lineChart.getXAxis().setLabelCount(lineDataList.get(position).getDataSets().get(0).getEntryCount(),true);
-           // holder.lineChart.getXAxis().mAxisRange=6;//will be tested
+        holder.lineChart.getXAxis().setLabelCount(lineDataList.get(position).getDataSets().get(0).getEntryCount(),true);
+        // holder.lineChart.getXAxis().mAxisRange=6;//will be tested
 
-        holder.lineChart.getAxisLeft().setTextColor(Color.YELLOW);
-        holder.lineChart.getLegend().setTextColor(Color.YELLOW);
+        holder.lineChart.getAxisLeft().setTextColor(Color.WHITE);
+        holder.lineChart.getLegend().setTextColor(Color.WHITE);
         //holder.lineChart.getLegend().setDirection(Legend.LegendDirection.RIGHT_TO_LEFT);
-        holder.lineChart.setNoDataTextColor(Color.YELLOW);
+        holder.lineChart.setNoDataTextColor(Color.WHITE);
         if(position==2){
             holder.lineChart.getAxisLeft().addLimitLine(bmiUpperLimitLine);
             holder.lineChart.getAxisLeft().addLimitLine(bmiDownLimitLine);

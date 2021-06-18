@@ -7,8 +7,9 @@
     android:textColor="@color/black"
     android:fontFamily="@font/segoe400"
     android:paddingBottom="10dp"
-    android:paddingLeft="10dp"
+    android:paddingLeft="5dp"
     android:paddingTop="5dp"
+    android:width="50dp"
     >
 
 </TextView>
