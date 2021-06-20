@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/backgg"
+    android:id="@+id/reminder_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgg"
     tools:context=".ReminderScreen">
 
     <ImageButton
@@ -17,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -81,10 +82,12 @@
         app:layout_constraintVertical_bias="0.245" />
 
     <TextView
+        android:id="@+id/sabaht"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoe400"
-        android:text="Sabah"
+        android:text="@string/morning"
+        android:textColor="@color/gray"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/sabahalarm"
         app:layout_constraintEnd_toEndOf="@+id/sabahalarm"
@@ -103,13 +106,15 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.245"  />
+        app:layout_constraintVertical_bias="0.245" />
 
     <TextView
+        android:id="@+id/oglet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoe400"
-        android:text="Öğle"
+        android:text="@string/noon"
+        android:textColor="@color/gray"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/oglealarm"
         app:layout_constraintEnd_toEndOf="@+id/oglealarm"
@@ -130,10 +135,12 @@
         app:layout_constraintVertical_bias="0.245" />
 
     <TextView
+        android:id="@+id/ikindit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoe400"
-        android:text="İkindi"
+        android:text="@string/afternoon"
+        android:textColor="@color/gray"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/ikindialarm"
         app:layout_constraintEnd_toEndOf="@+id/ikindialarm"
@@ -152,13 +159,15 @@
         app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.772"/>
+        app:layout_constraintVertical_bias="0.772" />
 
     <TextView
+        android:id="@+id/duskt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoe400"
-        android:text="Gün Batımı"
+        android:text="@string/dusk"
+        android:textColor="@color/gray"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/gunbatimialarm"
         app:layout_constraintEnd_toEndOf="@+id/gunbatimialarm"
@@ -180,10 +189,12 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <TextView
+        android:id="@+id/aksamt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoe400"
-        android:text="Akşam"
+        android:text="@string/evening"
+        android:textColor="@color/gray"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/aksamalarm"
         app:layout_constraintEnd_toEndOf="@+id/aksamalarm"
@@ -205,10 +216,12 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <TextView
+        android:id="@+id/gecet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoe400"
-        android:text="Gece"
+        android:text="@string/night"
+        android:textColor="@color/gray"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/gecealarm"
         app:layout_constraintEnd_toEndOf="@+id/gecealarm"
@@ -223,8 +236,8 @@
         android:layout_height="50dp"
         android:background="@drawable/attemptrec"
         android:fontFamily="@font/segoesemibold"
-        android:text="@string/save"
         android:onClick="onSave"
+        android:text="@string/save"
         android:textSize="18dp"
         app:backgroundTint="@color/wblue"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -232,7 +245,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="1.0"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -247,5 +260,4 @@
         app:layout_constraintStart_toStartOf="parent">
 
     </com.google.android.gms.ads.AdView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

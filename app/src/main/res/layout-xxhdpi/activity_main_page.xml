@@ -3,10 +3,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgg"
     tools:context=".MainPage">
+
+    <ImageView
+        android:id="@+id/settings_layout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
 
 
     <pl.droidsonroids.gif.GifImageView
@@ -16,43 +29,65 @@
         android:background="@drawable/gif00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.048" />
 
-    <TextView
-        android:id="@+id/droppercentage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:fontFamily="@font/segoesemibold"
-        android:text="%0"
-        android:textColor="@color/white"
-        android:textSize="25dp"
+
+    <ImageView
+        android:id="@+id/droppercentagecerceve"
+        android:layout_width="85dp"
+        android:layout_height="90dp"
+        android:background="@drawable/baslikcerceve"
         app:layout_constraintBottom_toTopOf="@+id/addwater"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/damla"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintVertical_bias="0.909" />
 
     <TextView
-        android:id="@+id/waytogoal"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginRight="15dp"
-        android:fontFamily="@font/segoesemibold"
-        android:gravity="center"
-        android:text="mütişsin ulan adam gibi adamsın"
-        android:textColor="@color/white"
-        android:textSize="18dp"
+        android:id="@+id/droppercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoe400"
+        android:text="%0"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/droppercentagecerceve"
+        app:layout_constraintEnd_toEndOf="@+id/droppercentagecerceve"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/droppercentagecerceve"
+        app:layout_constraintTop_toTopOf="@+id/droppercentagecerceve"
+        app:layout_constraintVertical_bias="0.380" />
+
+    <ImageView
+        android:id="@+id/konusmabalonu"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:background="@drawable/konusmabalonu"
         app:layout_constraintBottom_toTopOf="@+id/weatherbutton"
         app:layout_constraintEnd_toStartOf="@+id/damla"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.636" />
+        app:layout_constraintVertical_bias="0.255" />
+
+    <TextView
+        android:id="@+id/waytogoal"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/segoeprint"
+        android:gravity="center"
+        android:text="@string/konusma0"
+        android:textColor="@color/black"
+        android:textSize="11dp"
+        app:layout_constraintBottom_toBottomOf="@+id/konusmabalonu"
+        app:layout_constraintEnd_toEndOf="@+id/konusmabalonu"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="@+id/konusmabalonu"
+        app:layout_constraintTop_toTopOf="@+id/konusmabalonu"
+        app:layout_constraintVertical_bias="0.266" />
 
     <ImageView
         android:id="@+id/weatherbutton"
@@ -115,7 +150,7 @@
         android:background="@drawable/addwaterbigbutton"
         app:layout_constraintBottom_toTopOf="@+id/goalrec"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/damla"
         app:layout_constraintVertical_bias="1.0" />
@@ -245,7 +280,7 @@
         android:background="@drawable/goalrec"
         app:layout_constraintBottom_toTopOf="@+id/histories"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -356,7 +391,7 @@
         android:background="@drawable/historybig"
         app:layout_constraintBottom_toTopOf="@+id/statrec"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.747"
+        app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -475,7 +510,7 @@
         android:layout_marginTop="508dp"
         android:background="@drawable/lilrecstat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

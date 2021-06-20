@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/noblack"
+    android:id="@+id/settings_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/noblack"
     tools:context=".settings">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/geritusu"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -25,26 +26,27 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoesemibold"
         android:gravity="center"
-        android:text="Ayarlar"
+        android:text="@string/settings"
         android:textColor="@color/mainscreentextcolor"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391" />
+        app:layout_constraintVertical_bias="0.231" />
 
     <Button
         android:id="@+id/aboutus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hakkımızda"
-        android:textAllCaps="false"
-        android:fontFamily="@font/segoesemibold"
         android:background="@drawable/rectangle25"
+        android:fontFamily="@font/segoesemibold"
         android:gravity="center"
-        android:textSize="17dp"
         android:paddingBottom="15dp"
+        android:text="@string/aboutus"
+        android:textAllCaps="false"
+        android:textSize="17dp"
         app:backgroundTint="@color/mainscreentextcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,16 +56,16 @@
         app:layout_constraintVertical_bias="0.03" />
 
     <Button
-        android:id="@+id/donate"
+        android:id="@+id/terms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle25"
         android:fontFamily="@font/segoesemibold"
         android:gravity="center"
         android:paddingBottom="15dp"
-        android:text="Destek"
+        android:text="@string/termsandconditions"
         android:textAllCaps="false"
-        android:textSize="17dp"
+        android:textSize="15dp"
         app:backgroundTint="@color/mainscreentextcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,5 +73,96 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aboutus"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/temabaslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesemibold"
+        android:text="@string/themes"
+        android:textColor="@color/mainscreentextcolor"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/terms"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/tema1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/pinkiecircle"
+        android:onClick="OnClick"
+        app:layout_constraintEnd_toStartOf="@+id/tema2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temabaslik" />
+
+    <ImageView
+        android:id="@+id/tema2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/maincircleselected"
+        android:onClick="OnClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temabaslik" />
+
+    <ImageView
+        android:id="@+id/tema3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/darkwatercircle"
+        android:onClick="OnClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tema2"
+        app:layout_constraintTop_toBottomOf="@+id/temabaslik" />
+
+    <ImageView
+        android:id="@+id/tema4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/leafcircle"
+        android:onClick="OnClick"
+        app:layout_constraintEnd_toStartOf="@+id/tema5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tema1" />
+
+    <ImageView
+        android:id="@+id/tema5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/oceancircle"
+        android:onClick="OnClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tema2" />
+
+    <ImageView
+        android:id="@+id/tema6"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/volcanocircle"
+        android:onClick="OnClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tema5"
+        app:layout_constraintTop_toBottomOf="@+id/tema3" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

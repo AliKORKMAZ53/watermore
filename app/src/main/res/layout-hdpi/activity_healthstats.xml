@@ -83,9 +83,10 @@
         android:text="@string/dailywaterreq"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/i6"
         app:layout_constraintTop_toBottomOf="@+id/gpi"
         app:layout_constraintVertical_bias="0.096" />
@@ -98,9 +99,10 @@
         android:text="@string/idealweight"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/i2"
         app:layout_constraintTop_toBottomOf="@+id/vki"
         app:layout_constraintVertical_bias="0.050" />
@@ -113,9 +115,10 @@
         android:text="@string/dailyfatreq"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/i7"
         app:layout_constraintTop_toBottomOf="@+id/gsi"
         app:layout_constraintVertical_bias="0.197" />
@@ -128,9 +131,10 @@
         android:text="@string/dailyproteinreq"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
-        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/i5"
         app:layout_constraintTop_toBottomOf="@+id/bmh"
         app:layout_constraintVertical_bias="0.102" />
@@ -143,9 +147,10 @@
         android:text="@string/bloodrate"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
-        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/i3"
         app:layout_constraintTop_toBottomOf="@+id/ik"
         app:layout_constraintVertical_bias="0.050" />
@@ -158,9 +163,10 @@
         android:text="@string/basalmetabolicrate"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
-        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/i4"
         app:layout_constraintTop_toBottomOf="@+id/vkm"
         app:layout_constraintVertical_bias="0.06" />
@@ -173,12 +179,13 @@
         android:text="@string/bmitwodot"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
-        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/i1"
         app:layout_constraintTop_toBottomOf="@+id/baslik"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <ImageView
         android:id="@+id/i1"
@@ -272,10 +279,10 @@
         android:text="DEGER1"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
         app:layout_constraintHorizontal_bias="0.746"
-        app:layout_constraintStart_toEndOf="@+id/vki"
         app:layout_constraintTop_toTopOf="@+id/degerarka"
         app:layout_constraintVertical_bias="0.169" />
 
@@ -287,10 +294,10 @@
         android:text="DEGER2"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
         app:layout_constraintHorizontal_bias="0.886"
-        app:layout_constraintStart_toEndOf="@+id/ik"
         app:layout_constraintTop_toBottomOf="@+id/bmitext"
         app:layout_constraintVertical_bias="0.042" />
 
@@ -302,10 +309,10 @@
         android:text="DEGER3"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
         app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toEndOf="@+id/vkm"
         app:layout_constraintTop_toBottomOf="@+id/idealweighttext"
         app:layout_constraintVertical_bias="0.06" />
 
@@ -317,10 +324,10 @@
         android:text="DEGER4"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
         app:layout_constraintHorizontal_bias="0.527"
-        app:layout_constraintStart_toEndOf="@+id/bmh"
         app:layout_constraintTop_toBottomOf="@+id/bloodratetext"
         app:layout_constraintVertical_bias="0.064" />
 
@@ -332,10 +339,10 @@
         android:text="DEGER5"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
         app:layout_constraintHorizontal_bias="0.595"
-        app:layout_constraintStart_toEndOf="@+id/gpi"
         app:layout_constraintTop_toBottomOf="@+id/basalmetatext"
         app:layout_constraintVertical_bias="0.102" />
 
@@ -347,10 +354,10 @@
         android:text="DEGER6"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
         app:layout_constraintHorizontal_bias="0.787"
-        app:layout_constraintStart_toEndOf="@+id/gsi"
         app:layout_constraintTop_toBottomOf="@+id/dailyproteintext"
         app:layout_constraintVertical_bias="0.096" />
 
@@ -362,10 +369,10 @@
         android:text="DEGER7"
         android:textColor="@color/gray"
         android:textSize="18dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/degerarka"
         app:layout_constraintEnd_toEndOf="@+id/degerarka"
         app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toEndOf="@+id/gyi"
         app:layout_constraintTop_toBottomOf="@+id/dailywatertext"
         app:layout_constraintVertical_bias="0.197" />
 </androidx.constraintlayout.widget.ConstraintLayout>

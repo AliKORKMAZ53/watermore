@@ -119,10 +119,9 @@
         android:id="@+id/teaolcu"
         android:layout_width="88dp"
         android:layout_height="40dp"
-        android:onClick="OnClick"
-        android:text="Çay Bardağı 100 mL"
-        android:gravity="center"
         android:fontFamily="@font/segoesemibold"
+        android:gravity="center"
+        android:text="Çay Bardağı 100 mL"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tearec"
         app:layout_constraintEnd_toEndOf="@+id/tearec"
@@ -133,7 +132,6 @@
 
     <ImageView
         android:id="@+id/tea"
-        android:onClick="OnClick"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:src="@drawable/tea"

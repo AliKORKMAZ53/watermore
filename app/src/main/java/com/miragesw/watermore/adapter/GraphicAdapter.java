@@ -54,9 +54,9 @@ public class GraphicAdapter extends RecyclerView.Adapter<GraphicAdapter.MyViewHo
         bmiUpperLimitLine =new LimitLine(bmiLimits[1],context.getResources().getString(R.string.bmiuplimit));
         bmiDownLimitLine= new LimitLine(bmiLimits[0],context.getResources().getString(R.string.bmidownlimit));
         bmiUpperLimitLine.setLineWidth(5);
-        bmiUpperLimitLine.setTextColor(Color.WHITE);
+        bmiUpperLimitLine.setTextColor(Color.RED);
         bmiDownLimitLine.setLineWidth(5);
-        bmiDownLimitLine.setTextColor(Color.WHITE);
+        bmiDownLimitLine.setTextColor(Color.RED);
     }
 
     @NonNull

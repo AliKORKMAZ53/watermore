@@ -1,6 +1,7 @@
 package com.miragesw.watermore;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.NotificationCompat;
 
 import android.app.AlarmManager;
@@ -9,16 +10,19 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.miragesw.watermore.utils.Constants;
 import com.miragesw.watermore.utils.MyNotificationPublisher;
 import com.jakewharton.threetenabp.AndroidThreeTen;
+import com.miragesw.watermore.viewmodel.ThemeLiveData;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,16 +36,23 @@ public class ReminderScreen extends AppCompatActivity {
     }
 
     ImageView geritusu, sabah, ogle, ikindi, gunbatimi, aksam, gece;
+    TextView sabaht, oglet, ikindit,duskt,aksamt,gecet;
     int sabahOnOff, ogleOnOff, ikindiOnOff, gunbatimiOnOff, aksamOnOff, geceOnOff = 0;
     Calendar calendarSabah, calendarOgle, calendarikindi, calendarGunbatimi, calendarAksam, calendarGece;
     ArrayList<Calendar> calendarArrayList=new ArrayList<>();
     ArrayList<Integer> pendingIntentIdArray=new ArrayList<>();//sabah=1,ogle=2,ikindi=3,gunbatimi=4,aksam=5,gece=6
     ArrayList<Integer> cancelPendingIdArrayList=new ArrayList<>();
 
+    SharedPreferences sharedPreferences;
+    ConstraintLayout constraintLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reminder_screen);
+        constraintLayout=findViewById(R.id.reminder_layout);
+        sharedPreferences=getSharedPreferences("themes",Context.MODE_PRIVATE);
+        constraintLayout.setBackgroundResource(sharedPreferences.getInt("applyTheme",R.drawable.backgg));
+
         AndroidThreeTen.init(getApplication());
         calendarSabah = Calendar.getInstance();
         calendarOgle = Calendar.getInstance();
@@ -64,6 +75,13 @@ public class ReminderScreen extends AppCompatActivity {
         gunbatimi = findViewById(R.id.gunbatimialarm);
         gece = findViewById(R.id.gecealarm);
 
+        sabaht=findViewById(R.id.sabaht);
+        oglet=findViewById(R.id.oglet);
+        ikindit=findViewById(R.id.ikindit);
+        duskt=findViewById(R.id.duskt);
+        aksamt=findViewById(R.id.aksamt);
+        gecet=findViewById(R.id.gecet);
+
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
@@ -76,6 +94,7 @@ public class ReminderScreen extends AppCompatActivity {
 
         if (sabahOnOff == 1) {
             sabah.setImageResource(R.drawable.sabahafter);
+            sabaht.setTextColor(Color.BLACK);
             calendarArrayList.add(calendarSabah);
             pendingIntentIdArray.add(1);
         }else{
@@ -84,12 +103,14 @@ public class ReminderScreen extends AppCompatActivity {
         if (ogleOnOff == 1) {
             ogle.setImageResource(R.drawable.ogleafter);
             calendarArrayList.add(calendarOgle);
+            oglet.setTextColor(Color.BLACK);
             pendingIntentIdArray.add(2);
         }else{
             cancelPendingIdArrayList.add(2);
         }
         if (ikindiOnOff == 1) {
             ikindi.setImageResource(R.drawable.ikindiafter);
+            ikindit.setTextColor(Color.BLACK);
             calendarArrayList.add(calendarikindi);
             pendingIntentIdArray.add(3);
         }else{
@@ -97,6 +118,7 @@ public class ReminderScreen extends AppCompatActivity {
         }
         if (gunbatimiOnOff == 1) {
             gunbatimi.setImageResource(R.drawable.duskafter);
+            duskt.setTextColor(Color.BLACK);
             calendarArrayList.add(calendarGunbatimi);
             pendingIntentIdArray.add(4);
         }else{
@@ -104,6 +126,7 @@ public class ReminderScreen extends AppCompatActivity {
         }
         if (aksamOnOff == 1) {
             aksam.setImageResource(R.drawable.aksamafter);
+            aksamt.setTextColor(Color.BLACK);
             calendarArrayList.add(calendarAksam);
             pendingIntentIdArray.add(5);
         }else{
@@ -111,6 +134,7 @@ public class ReminderScreen extends AppCompatActivity {
         }
         if (geceOnOff == 1) {
             gece.setImageResource(R.drawable.geceafter);
+            gecet.setTextColor(Color.BLACK);
             calendarArrayList.add(calendarGece);
             pendingIntentIdArray.add(6);
         }else{
@@ -125,9 +149,10 @@ public class ReminderScreen extends AppCompatActivity {
             sabah.startAnimation(animation1);
             if (sabahOnOff == 0) {
                 sabah.setImageResource(R.drawable.sabahafter);
-
+                sabaht.setTextColor(Color.BLACK);
                 calendarArrayList.add(calendarSabah);
                 sabahOnOff = 1;
+                sabaht.startAnimation(animation1);
                 pendingIntentIdArray.add(1);
                 cancelPendingIdArrayList.remove(cancelPendingIdArrayList.indexOf(1));
                 editor.putInt("sabah", sabahOnOff);
@@ -135,7 +160,9 @@ public class ReminderScreen extends AppCompatActivity {
 
             } else if (sabahOnOff == 1) {
                 sabah.setImageResource(R.drawable.sabahbefore);
+                sabaht.setTextColor(Color.GRAY);
                 sabahOnOff = 0;
+                sabaht.startAnimation(animation1);
                 calendarArrayList.remove(calendarSabah);
                 cancelPendingIdArrayList.add(1);
                 pendingIntentIdArray.remove(pendingIntentIdArray.indexOf(1));
@@ -160,6 +187,8 @@ public class ReminderScreen extends AppCompatActivity {
                 cancelPendingIdArrayList.remove(cancelPendingIdArrayList.indexOf(2));
                 calendarArrayList.add(calendarOgle);
                 ogleOnOff = 1;
+                oglet.setTextColor(Color.BLACK);
+                oglet.startAnimation(animation1);
                 pendingIntentIdArray.add(2);
                 editor.putInt("ogle", ogleOnOff);
                 editor.apply();
@@ -168,6 +197,8 @@ public class ReminderScreen extends AppCompatActivity {
                 ogleOnOff = 0;
                 calendarArrayList.remove(calendarOgle);
                 cancelPendingIdArrayList.add(2);
+                oglet.setTextColor(Color.GRAY);
+                oglet.startAnimation(animation1);
                 pendingIntentIdArray.remove(pendingIntentIdArray.indexOf(2));
                 editor.putInt("ogle", ogleOnOff);
                 editor.apply();
@@ -189,6 +220,8 @@ public class ReminderScreen extends AppCompatActivity {
                 cancelPendingIdArrayList.remove(cancelPendingIdArrayList.indexOf(3));
                 calendarArrayList.add(calendarikindi);
                 ikindiOnOff = 1;
+                ikindit.setTextColor(Color.BLACK);
+                ikindit.startAnimation(animation1);
                 pendingIntentIdArray.add(3);
                 editor.putInt("ikindi", ikindiOnOff);
                 editor.apply();
@@ -197,6 +230,8 @@ public class ReminderScreen extends AppCompatActivity {
                 ikindiOnOff = 0;
                 calendarArrayList.remove(calendarikindi);
                 cancelPendingIdArrayList.add(3);
+                ikindit.setTextColor(Color.GRAY);
+                ikindit.startAnimation(animation1);
                 pendingIntentIdArray.remove(pendingIntentIdArray.indexOf(3));
                 editor.putInt("ikindi", ikindiOnOff);
                 editor.apply();
@@ -219,6 +254,8 @@ public class ReminderScreen extends AppCompatActivity {
                 cancelPendingIdArrayList.remove(cancelPendingIdArrayList.indexOf(4));
                 calendarArrayList.add(calendarGunbatimi);
                 gunbatimiOnOff = 1;
+                duskt.setTextColor(Color.BLACK);
+                duskt.startAnimation(animation1);
                 pendingIntentIdArray.add(4);
                 editor.putInt("gunbatimi", gunbatimiOnOff);
                 editor.apply();
@@ -227,6 +264,8 @@ public class ReminderScreen extends AppCompatActivity {
                 gunbatimiOnOff = 0;
                 calendarArrayList.remove(calendarGunbatimi);
                 cancelPendingIdArrayList.add(4);
+                duskt.setTextColor(Color.GRAY);
+                duskt.startAnimation(animation1);
                 pendingIntentIdArray.remove(pendingIntentIdArray.indexOf(4));
                 editor.putInt("gunbatimi", gunbatimiOnOff);
                 editor.apply();
@@ -247,6 +286,8 @@ public class ReminderScreen extends AppCompatActivity {
                 cancelPendingIdArrayList.remove(cancelPendingIdArrayList.indexOf(5));
                 calendarArrayList.add(calendarAksam);
                 aksamOnOff = 1;
+                aksamt.setTextColor(Color.BLACK);
+                aksamt.startAnimation(animation1);
                 pendingIntentIdArray.add(5);
                 editor.putInt("aksam", aksamOnOff);
                 editor.apply();
@@ -254,7 +295,9 @@ public class ReminderScreen extends AppCompatActivity {
                 aksam.setImageResource(R.drawable.aksambefore);
                 aksamOnOff = 0;
                 calendarArrayList.remove(calendarAksam);
+                aksamt.setTextColor(Color.GRAY);
                 cancelPendingIdArrayList.add(5);
+                aksamt.startAnimation(animation1);
                 pendingIntentIdArray.remove(pendingIntentIdArray.indexOf(5));
                 editor.putInt("aksam", aksamOnOff);
                 editor.apply();
@@ -275,12 +318,16 @@ public class ReminderScreen extends AppCompatActivity {
                 cancelPendingIdArrayList.remove(cancelPendingIdArrayList.indexOf(6));
                 calendarArrayList.add(calendarGece);
                 geceOnOff = 1;
+                gecet.setTextColor(Color.BLACK);
+                gecet.startAnimation(animation1);
                 pendingIntentIdArray.add(6);
                 editor.putInt("gece", geceOnOff);
                 editor.apply();
             } else if (geceOnOff == 1) {
                 gece.setImageResource(R.drawable.gecebefore);
                 geceOnOff = 0;
+                gecet.setTextColor(Color.GRAY);
+                gecet.startAnimation(animation1);
                 calendarArrayList.remove(calendarGece);
                 cancelPendingIdArrayList.add(6);
                 pendingIntentIdArray.remove(pendingIntentIdArray.indexOf(6));
@@ -314,7 +361,7 @@ public class ReminderScreen extends AppCompatActivity {
 
     private Notification getNotification(String content) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, default_notification_channel_id);
-        builder.setContentTitle("Hatırlatıcı");
+        builder.setContentTitle("Watermore");
         builder.setContentText(content);
         builder.setSmallIcon(R.drawable.ic_launcher_foreground);
         builder.setAutoCancel(true);
@@ -324,10 +371,10 @@ public class ReminderScreen extends AppCompatActivity {
 
     private void updateLabel() {
         for (int i = 0; i < pendingIntentIdArray.size(); i++) {
-            scheduleNotification(getNotification("Su içmeyi unutmayın .)"), calendarArrayList.get(i).getTimeInMillis(), pendingIntentIdArray.get(i));
+            scheduleNotification(getNotification(getResources().getString(R.string.notification)), calendarArrayList.get(i).getTimeInMillis(), pendingIntentIdArray.get(i));
         }
         for(int i=0;i < cancelPendingIdArrayList.size();i++){
-            cancelNotification(getNotification("Su içmeyi unutmayın .)"),cancelPendingIdArrayList.get(i));
+            cancelNotification(getNotification(getResources().getString(R.string.notification)),cancelPendingIdArrayList.get(i));
         }
     }
 
@@ -338,13 +385,5 @@ public class ReminderScreen extends AppCompatActivity {
         finish();
     }
 
-  /*  public void setFirstver(){
-        sabah.setImageResource(R.drawable.sabahbefore);
-        ogle.setImageResource(R.drawable.oglebefore);
-        ikindi.setImageResource(R.drawable.ikindibefore);
-        aksam.setImageResource(R.drawable.aksambefore);
-        gece.setImageResource(R.drawable.gecebefore);
-        gunbatimi.setImageResource(R.drawable.duskbefore);
-    }
-   */
+
 }

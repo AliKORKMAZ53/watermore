@@ -3,6 +3,7 @@ package com.miragesw.watermore.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.viewpager.widget.PagerAdapter;
@@ -42,10 +44,10 @@ public class SlideAdapter extends PagerAdapter {
 
     // list of background colors
     public int[]  lst_backgroundcolor = {
-            R.drawable.__bg__iphone_x__xs__11_pro___11_shape,
-            R.drawable.__bg__iphone_x__xs__11_pro___11_shape,
-            R.drawable.usernamepopbg,
-            R.drawable.usernamepopbg
+            Color.rgb(0,190,255),
+            Color.rgb(0,215,165),
+            Color.rgb(215,205,100),
+            Color.rgb(200,0,85)
     };
 
 
@@ -72,13 +74,13 @@ public class SlideAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return (view==(LinearLayout)object);
+        return (view==(ConstraintLayout)object);
     }
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.slidelinearlayout,container,false);
-        LinearLayout layoutslide = (LinearLayout) view.findViewById(R.id.slidelinearlayout);
+        ConstraintLayout layoutslide = (ConstraintLayout) view.findViewById(R.id.slidelinearlayout);
         ImageView imgslide = (ImageView)  view.findViewById(R.id.slideimg);
         TextView txttitle= (TextView) view.findViewById(R.id.txttitle);
         TextView description = (TextView) view.findViewById(R.id.txtdescription);
@@ -102,7 +104,7 @@ public class SlideAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((LinearLayout)object);
+        container.removeView((ConstraintLayout)object);
     }
     public LiveData<Boolean> checkButtonClicked(){
         return isButtonClicked;

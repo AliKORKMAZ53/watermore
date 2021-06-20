@@ -1,57 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
     android:id="@+id/slidelinearlayout">
 
     <ImageView
-        android:layout_marginTop="100dp"
+        android:id="@+id/slideimg"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:id="@+id/slideimg"
-        android:layout_weight="4"/>
+        android:layout_weight="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.122" />
 
     <TextView
-        android:padding="16dp"
         android:id="@+id/txttitle"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:text="Title Here"
-
-        android:fontFamily="@font/segoeprint"
-        android:textColor="#fff"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:padding="16dp"
-        android:id="@+id/txtdescription"
-        android:textAlignment="center"
-        android:textSize="17sp"
-        android:text="Description is Here"
-        android:textColor="#fff"
-        android:layout_weight="2"
-        android:fontFamily="@font/segoe400"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"/>
+        android:layout_weight="1"
+        android:fontFamily="@font/segoeprint"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Title Here"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slideimg" />
+
+    <TextView
+        android:id="@+id/txtdescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:fontFamily="@font/segoe400"
+        android:padding="10dp"
+        android:text="Description is Here"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txttitle" />
 
     <Button
         android:id="@+id/kaydirButton"
         android:layout_width="210dp"
         android:layout_height="45dp"
-        android:textSize="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/sagakaydir"
-        android:textColor="@color/wblue"
-        android:layout_weight="1"
         android:layout_gravity="right"
-        android:backgroundTint="@color/red"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
         android:background="@drawable/logbutton"
+        android:backgroundTint="@color/wblue"
         android:onClick="enterTheActOnClick"
-        />
+        android:text="@string/sagakaydir"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/segoe400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

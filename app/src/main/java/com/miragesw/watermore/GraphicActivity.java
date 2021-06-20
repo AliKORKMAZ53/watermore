@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.RelativeLayout;
 
 import com.miragesw.watermore.adapter.GraphicAdapter;
 import com.miragesw.watermore.viewmodel.DbViewModel;
@@ -16,6 +19,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.utils.Utils;
+import com.miragesw.watermore.viewmodel.ThemeLiveData;
 
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
@@ -34,15 +38,19 @@ public class GraphicActivity extends AppCompatActivity {
     DbViewModel dbViewModel;
     DateTimeFormatter formatter=DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss OOOO yyyy", Locale.ROOT);
 
-
+    SharedPreferences sharedPreferences;
     RecyclerView recyclerView;
     GraphicAdapter graphicAdapter;
+    RelativeLayout relativeLayout;
     int age=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) throws NegativeArraySizeException{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphic);
         recyclerView=findViewById(R.id.recyclerView);
+        relativeLayout=findViewById(R.id.graphic_layout);
+        sharedPreferences=getSharedPreferences("themes", Context.MODE_PRIVATE);
+        relativeLayout.setBackgroundResource(sharedPreferences.getInt("applyTheme",R.drawable.backgg));
 
 
         Intent intent=getIntent();
@@ -108,8 +116,8 @@ public class GraphicActivity extends AppCompatActivity {
 
 
                 goal.setValueTextSize(10);
-                goal.setColor(Color.GREEN);
-                goal.setValueTextColor(Color.GREEN);
+                goal.setColor(Color.RED);
+                goal.setValueTextColor(Color.RED);
 
                 weg.setValueTextSize(12);
                 weg.setValueTextColor(Color.CYAN);

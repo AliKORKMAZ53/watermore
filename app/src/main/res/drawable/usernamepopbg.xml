@@ -5,6 +5,4 @@
         android:endColor="@color/popstart"
         android:angle="45"/>
 
-    <corners
-        android:radius="35dp"/>
 </shape>

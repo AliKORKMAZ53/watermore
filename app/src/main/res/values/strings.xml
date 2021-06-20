@@ -59,8 +59,8 @@
     <string name="drunktime">Water Drunk - Time</string>
     <string name="weighttime">Weight - Time</string>
     <string name="bmitime">Body Mass Index - Time</string>
-    <string name="descriptionWeight">Milliliter - Day</string>
-    <string name="descriptionDrunk">Kilogram - Day</string>
+    <string name="descriptionDrunk">Milliliter - Day</string>
+    <string name="descriptionWeight">Kilogram - Day</string>
     <string name="descriptionbmi">Bmi - Day</string>
     <string name="bmiuplimit">Overweight</string>
     <string name="bmidownlimit">Underweight</string>
@@ -81,6 +81,40 @@
     <string name="description3">By panels , which on main page, you can reach the operation that you want to do. As your choice you can add water to your waterdrop, you can set your reminders or you can check the graphics that we prepared for you and more!</string>
     <string name="description4">We aimed you to have fun while you are checking your health stats. So we designed a little friend for you! While you trying to reach your daily goal and add water to your waterdrop , for each certain level it will have different facial expressions!</string>
 
-    <string name="sagakaydir">Swipe Right ->>></string>
+    <string name="sagakaydir">Swipe Right</string>
     <string name="entertheApp">Enter the app</string>
+
+    <!--damla-konusma-balonu-yazilari-->
+    <string name="konusma0">Didn"'"t even have a sip today!</string>
+    <string name="konusma020">Now we are starting.</string>
+    <string name="konusma2040">Is that all we can do?</string>
+    <string name="konusma4060"> Now you are getting hydrated!</string>
+    <string name="konusma6080">There is no much left to goal!</string>
+    <string name="konusma80100"> You are doing so well!</string>
+    <string name="konusma100">Awesome!</string>
+
+    <!--username-yazilari-->
+    <string name="welcome2app">Welcome to Watermore!</string>
+    <string name="underwelcome">What should we call you?</string>
+    <string name="usernamehint">Example:Username</string>
+    <string name="kullanimsartlari">By continuing you agree to terms and conditions.\n(Click here to read.)</string>
+    <string name="continueu">CONTINUE</string>
+
+    <!--settings-->
+    <string name="settings">Settings</string>
+    <string name="aboutus">About Us</string>
+    <string name="termsandconditions">Terms &amp; Conditions</string>
+    <string name="themes">Themes</string>
+
+    <!--about-us-->
+    <string name="aboutusbaslik">About Us</string>
+    <string name="aboutusyazi">Yeteri kadar su içmenin vücudumuza yararı aşikar. Ayrıca diğer vücut değerlerimizin üzerindeki etkisini de biliyoruz. Mirage SW olarak Watermore"'"u oluşturma sebebimiz de tam olarak bu! Watermore ile günlük içmeniz gereken suyun takibi dışında Sağlık Değerlerim sayfasında bir çok çeşitli bilginize de erişebilirsiniz! Buradaki sonuçlarda, yaptığımız araştırmalar sonucu, kesin değerlerinize en yakın değerleri vermeyi hedefledik. Ayrıca buradaki değerlerinizin yanı sıra Grafik ekranımızdan hedefinize ne zaman ne kadar ulaştığınızı ve bu hedeflere ulaştığınız takdirde vücudunuzdaki değişimleri görmenizi sağladık. Tüm bunları yaparken renkli ve akıcı arayüzümüz ile değer takibinizi yaparken aynı zamanda eğlenmenizi istedik ve küçük bir arkadaş oluşturduk. Umarız uygulamamız size yardımcı olur aşağıda Watermore içerisinde kullandığımız kaynaklara erişebilirsiniz. Mirage SW.</string>
+    <string name="kaynaklar">Attributes</string>
+    <string name="kaynaklaryazi">kaynaklarburda</string>
+    <!--bildirim-->
+    <string name="notification">Do not forget to stay hydrated!</string>
+
+    <!--kullanim-kosullari-->
+    <string name="kullanimkosullari">Watermore is a software that made by Mirage SW to calculate;\n*Daily Water/Protein/Fat Requirements\n*Body-Mass Index\n*Blood Rate\n*Ideal Weight\n*Basal Metabolism Rate values according to your body values and show you. The values that you will enter in Watermore are only for calculating and Mirage SW does not take or share those values. Results that you can find in Watermore are accepted and average values and they don"'"t claim certain values. We aimed those results to be closest to your results as much as possible. If you follow Watermore and drink your daily goal you can observe changes from Health Stats and Graphic pages. You can find more on About Us page in Settings. Mirage SW is not responsible for wrong/false situations.</string>
+    <string name="termbaslik">Terms and Conditions</string>
 </resources>

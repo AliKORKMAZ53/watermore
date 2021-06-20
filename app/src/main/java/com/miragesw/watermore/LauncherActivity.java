@@ -1,6 +1,7 @@
 package com.miragesw.watermore;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -23,6 +24,7 @@ import com.miragesw.watermore.utils.Calculations;
 import com.miragesw.watermore.utils.Constants;
 import com.miragesw.watermore.viewmodel.DbViewModel;
 import com.jakewharton.threetenabp.AndroidThreeTen;
+import com.miragesw.watermore.viewmodel.ThemeLiveData;
 
 import org.threeten.bp.OffsetDateTime;
 
@@ -48,10 +50,12 @@ public class LauncherActivity extends AppCompatActivity {
     Boolean isLastRecordToday;
     AlertDialog.Builder adb;
     DbViewModel dbViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+
         AndroidThreeTen.init(this);
         lastUserRecord.height=0;
         lastUserRecord.weight=0;

@@ -1,8 +1,11 @@
 package com.miragesw.watermore;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,6 +16,7 @@ import android.widget.TextView;
 
 import com.miragesw.watermore.utils.Calculations;
 import com.miragesw.watermore.viewmodel.DbViewModel;
+import com.miragesw.watermore.viewmodel.ThemeLiveData;
 
 public class HealthStats extends AppCompatActivity {
 
@@ -22,10 +26,15 @@ public class HealthStats extends AppCompatActivity {
         finish();
     }
     Calculations calculations=new Calculations();
+    SharedPreferences sharedPreferences;
+    ConstraintLayout constraintLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_healthstats);
+        constraintLayout=findViewById(R.id.health_layout);
+        sharedPreferences=getSharedPreferences("themes", Context.MODE_PRIVATE);
+        constraintLayout.setBackgroundResource(sharedPreferences.getInt("applyTheme",R.drawable.backgg));
 
         DbViewModel dbViewModel=new DbViewModel(getApplication());
 

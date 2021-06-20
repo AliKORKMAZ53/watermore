@@ -19,15 +19,15 @@
         android:roundIcon="@mipmap/watermoreicon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Watermore">
-        <activity android:name=".SliderActivity"></activity>
+        <activity android:name=".termsPop" android:theme="@style/PopMe"></activity>
+        <activity android:name=".SliderActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-9349705227439488~5211430390" />
 
         <activity android:name=".settings" />
-        <activity android:name=".Donate" />
-        <activity android:name=".AboutUs" />
+        <activity android:name=".AboutUs" android:theme="@style/PopMe" />
         <activity
             android:name=".FullscreenSplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

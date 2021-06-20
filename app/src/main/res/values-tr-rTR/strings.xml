@@ -78,6 +78,40 @@
     <string name="description3">Ana sayfada görebileceğiniz paneller ile yapmak istediğiniz işleme kolayca erişin. Seçtiğiniz işleme göre damlanıza su ekleyebilir, hatırlatıcılarınızı ekleyip çıkartabilir veya ilerlemenizi görmek için sizin için hazırladığımız grafikleri inceleyebilirsiniz hatta daha fazlası!</string>
     <string name="description4">Watermore içerisinde kullandığımız tasarım sayesinde değerlerinizi kontrol ederken eğlenmenizi de hedefliyoruz.Ve bu yüzden sizin için küçük bir arkadaş tasarladık! Her su içişinizde yaptığınız ekleme sayesinde hedefinize yaklaştıkça damlanızdaki değişimi fark edebilirsiniz!</string>
 
-    <string name="sagakaydir">Sağa Kaydır ->>></string>
+    <string name="sagakaydir">Sağa Kaydır</string>
     <string name="entertheApp">Uygulamaya Geç</string>
+
+    <!--damla-konusma-balonu-yazilari-->
+    <string name="konusma0">Bugün hiç su içmediniz!</string>
+    <string name="konusma020">Daha yeni başlıyoruz.</string>
+    <string name="konusma2040">Biraz daha çaba sarfetmeliyiz.</string>
+    <string name="konusma4060">Yolun yarısına geldik bile!</string>
+    <string name="konusma6080">Hedefe çok az kaldı!</string>
+    <string name="konusma80100">Çok iyi gidiyorsunuz!</string>
+    <string name="konusma100">Harikasınız!</string>
+
+    <!--username-yazilari-->
+    <string name="welcome2app">Watermore"'"a Hoşgeldin!</string>
+    <string name="underwelcome">Size nasıl seslenelim?</string>
+    <string name="usernamehint">Örneğin: Kullanıcı Adı</string>
+    <string name="kullanimsartlari">Devam ederek Kullanım Koşullarını kabul etmiş olursunuz.\n(Okumak için buraya tıklayın.)</string>
+    <string name="continueu">DEVAM ET</string>
+
+    <!--settings-->
+    <string name="settings">Ayarlar</string>
+    <string name="aboutus">Hakkımızda</string>
+    <string name="termsandconditions">Kullanım Koşulları</string>
+    <string name="themes">Temalar</string>
+
+    <!--bildirim-->
+    <string name="notification">Bugün yeteri kadar su içmeyi unutmayın!</string>
+
+    <!--about-us-->
+    <string name="aboutusbaslik">About Us</string>
+    <string name="aboutusyazi">Yeteri kadar su içmenin vücudumuza yararı aşikar. Ayrıca diğer vücut değerlerimizin üzerindeki etkisini de biliyoruz. Mirage SW olarak Watermore"'"u oluşturma sebebimiz de tam olarak bu! Watermore ile günlük içmeniz gereken suyun takibi dışında Sağlık Değerlerim sayfasında bir çok çeşitli bilginize de erişebilirsiniz! Buradaki sonuçlarda, yaptığımız araştırmalar sonucu, kesin değerlerinize en yakın değerleri vermeyi hedefledik. Ayrıca buradaki değerlerinizin yanı sıra Grafik ekranımızdan hedefinize ne zaman ne kadar ulaştığınızı ve bu hedeflere ulaştığınız takdirde vücudunuzdaki değişimleri görmenizi sağladık. Tüm bunları yaparken renkli ve akıcı arayüzümüz ile değer takibinizi yaparken aynı zamanda eğlenmenizi istedik ve küçük bir arkadaş oluşturduk. Umarız uygulamamız size yardımcı olur aşağıda Watermore içerisinde kullandığımız kaynaklara erişebilirsiniz. Mirage SW.</string>
+    <string name="kaynaklar">Kaynaklar</string>
+    <string name="kaynaklaryazi">kaynaklarburda</string>
+    <!--kullanim-kosullari-->
+    <string name="kullanimkosullari">Watermore, Mirage SW tarafından, girecek olduğunuz bilgiler doğrultusunda çeşitli sağlık hesaplamaları yaparak; \n*Günlük Su/Protein/Yağ ihtiyacı\n*Vücut Kitle İndeksi\n*Vücudunuzdaki Kan Miktarı\n*İdeal Kilo aralığı\n*Bazal Metabolizma Hızı gibi değerlerinizi sizlere sunmak için oluşturulmuş bir yazılımdır. Uygulama içerisinde gireceğiniz bilgiler asla tarafımızca alınmaz ve paylaşılmaz size özel olarak kalır. Watermore içerisinden erişebileceğiniz bütün bilgiler kabul görmüş ortalama verilerdir hiçbir şekilde kesinlik iddia etmez. Her oranın farklı sonuç verebileceği gibi bu bilgiler genel formüller doğrultusunda elde edildiğinden sonucunuza en yakın olan ortalama verilerdir. Grafiklerinizin oluşturduğu grafik sayfası ise tamamiyle günlük ihtiyacınız olan suyu düzenli olarak tüketip tüketmediğinizi ve içtiğiniz su doğrultusunda değerleriniz arasındaki değişimi rahat görmeniz için tasarlanmıştır. Hakkımızda daha fazla bilgi almak ve formüllere gözatmak için Ayarlar sekmesinden Hakkımızda kısmına ulaşabilirsiniz oluşan herhangi bir yanlış durum/olay için Mirage SW sorumluluk kabul etmez.</string>
+    <string name="termbaslik">Kullanım Koşulları</string>
 </resources>

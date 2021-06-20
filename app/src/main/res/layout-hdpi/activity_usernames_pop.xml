@@ -15,8 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/segoesemibold"
-        android:text="Watermore'a Hoşgeldiniz!"
+        android:fontFamily="@font/segoesemibolditalic"
+        android:text="@string/welcome2app"
         android:textColor="@color/purple_700"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/seslenek"
@@ -30,8 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/segoesemibold"
-        android:text="Size nasıl seslenelim ?"
+        android:fontFamily="@font/segoe400"
+        android:text="@string/underwelcome"
         android:textColor="@color/purple_700"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/enterusername"
@@ -47,16 +47,28 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:background="@drawable/custom"
-        android:fontFamily="@font/segoesemibold"
-        android:hint="Örneğin: kullanıcı1"
-        android:paddingStart="10dp"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/saveusername"
+        android:fontFamily="@font/segoe400"
+        android:hint="@string/usernamehint"
+        android:paddingStart="15dp"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/kullanimkosullari"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/kullanimkosullari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kullanimsartlari"
+        android:gravity="center"
+        android:fontFamily="@font/segoe400"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/saveusername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/saveusername"
@@ -64,8 +76,9 @@
         android:layout_height="77dp"
         android:layout_gravity="center"
         android:background="@drawable/addwaterbutton"
+        android:fontFamily="@font/segoesemibold"
         android:paddingBottom="15dp"
-        android:text="Devam Et"
+        android:text="@string/continueu"
         android:textColor="@color/purple_700"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +86,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.558" />
+        app:layout_constraintVertical_bias="0.646" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

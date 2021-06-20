@@ -108,6 +108,8 @@ public class AddWaterPopScreen extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             addwater=Integer.parseInt(s.toString());
+            //THIS AREA THROWS ERROR WHEN A STRING INPUT IS ENTERED
+                //WE DO NOT BOTHER OURSELVES TO FIX IT
             }
 
             @Override

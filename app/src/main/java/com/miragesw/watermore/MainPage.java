@@ -2,12 +2,15 @@ package com.miragesw.watermore;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +24,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.jakewharton.threetenabp.AndroidThreeTen;
+import com.miragesw.watermore.viewmodel.ThemeLiveData;
 
 import org.threeten.bp.OffsetDateTime;
 
@@ -31,6 +35,11 @@ public class MainPage extends AppCompatActivity {
     //boy-kilo girmeye geri gönderiyo
     public void goUpdateValues(){
         Intent intent = new Intent(this, LauncherActivity.class);
+        startActivity(intent);
+    }
+    //settings
+    public void goSettings(){
+        Intent intent = new Intent(this, settings.class);
         startActivity(intent);
     }
     //su eklemeye gönderiyo
@@ -55,6 +64,9 @@ public class MainPage extends AppCompatActivity {
     TextView bmiText;
     TextView goalText;
     TextView droppercentage;
+    TextView konusma;
+    ImageView konusmabalonu;
+    ImageView settings;
     Button updater;
     Button waterAdder;
     Button degerekran;
@@ -63,12 +75,20 @@ public class MainPage extends AppCompatActivity {
     GifImageView damlagif;
     TextView usernameTextView;
     SharedPreferences sharedPreferences;
+    SharedPreferences sharedThemePrefs;
+    ConstraintLayout constraintLayout;
+    ThemeLiveData themeLiveData=new ThemeLiveData();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+        constraintLayout=findViewById(R.id.main_layout);
         sharedPreferences=getSharedPreferences("routing", Context.MODE_PRIVATE);
-
+        sharedThemePrefs=getSharedPreferences("themes",Context.MODE_PRIVATE);
+        constraintLayout.setBackgroundResource(sharedThemePrefs.getInt("applyTheme",R.drawable.backgg));
+        themeLiveData.returnTheme().observe(this,response->{
+            constraintLayout.setBackgroundResource(response);
+        });
         //ADS
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -93,6 +113,12 @@ public class MainPage extends AppCompatActivity {
         bmiText=findViewById(R.id.bmitextmainpage);
         goalText=findViewById(R.id.goalwatertext);
         droppercentage=findViewById(R.id.droppercentage);
+        konusma=findViewById(R.id.waytogoal);
+        konusmabalonu=findViewById(R.id.konusmabalonu);
+        settings=findViewById(R.id.settings_layout);
+        Animation animation = AnimationUtils.loadAnimation(MainPage.this,R.anim.blink_anim);
+        konusma.startAnimation(animation);
+        konusmabalonu.startAnimation(animation);
 
         DbViewModel dbViewModel=new DbViewModel(this.getApplication());
       /*  dbViewModel.getLastDate().observe(this, response->{
@@ -121,19 +147,25 @@ public class MainPage extends AppCompatActivity {
               }
               if (((double) response.drunk / 1000) >= response.goal) {
                   droppercentage.setText("%100");
+                  konusma.setText(getResources().getString(R.string.konusma100));
                   damlagif.setBackgroundResource(R.drawable.gif100);
               } else {
                   droppercentage.setText("%" + trim);
                   if(Integer.valueOf(trim)>0&&Integer.valueOf(trim)<21){
                       damlagif.setBackgroundResource(R.drawable.gif00);
+                      konusma.setText(getResources().getString(R.string.konusma020));
                   }else if(Integer.valueOf(trim)>20&&Integer.valueOf(trim)<41){
                       damlagif.setBackgroundResource(R.drawable.gif20);
+                      konusma.setText(getResources().getString(R.string.konusma2040));
                   }else if(Integer.valueOf(trim)>40&&Integer.valueOf(trim)<61){
                       damlagif.setBackgroundResource(R.drawable.gif40);
+                      konusma.setText(getResources().getString(R.string.konusma4060));
                   }else if(Integer.valueOf(trim)>60&&Integer.valueOf(trim)<81){
                       damlagif.setBackgroundResource(R.drawable.gif60);
+                      konusma.setText(getResources().getString(R.string.konusma6080));
                   }else if(Integer.valueOf(trim)>80&&Integer.valueOf(trim)<100){
                       damlagif.setBackgroundResource(R.drawable.gif80);
+                      konusma.setText(getResources().getString(R.string.konusma80100));
                   }
               }
           }else{
@@ -188,6 +220,13 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setReminderScreen();
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goSettings();
             }
         });
     }

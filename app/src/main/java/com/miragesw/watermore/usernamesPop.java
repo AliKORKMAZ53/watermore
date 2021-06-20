@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -20,7 +22,11 @@ public class usernamesPop extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     Button btnSave;
     String username;
-
+    TextView kosullar;
+    public void openTermsPOP(){
+        Intent intent = new Intent(this, termsPop.class);
+        startActivity(intent);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +34,24 @@ public class usernamesPop extends AppCompatActivity {
         Intent LauncherActIntent=new Intent(this,LauncherActivity.class);
         sharedPreferences=getSharedPreferences("routing", Context.MODE_PRIVATE);
         setContentView(R.layout.activity_usernames_pop);
-
-
-        usernameEdit=findViewById(R.id.enterusername);
-        btnSave=findViewById(R.id.saveusername);
-        username=sharedPreferences.getString("usernameKey","null");
         if(username=="null"||username==null){
 
         }else{
             startActivity(mainPageIntent);
             finish();
         }
+
+        kosullar=findViewById(R.id.kullanimkosullari);
+        usernameEdit=findViewById(R.id.enterusername);
+        btnSave=findViewById(R.id.saveusername);
+        username=sharedPreferences.getString("usernameKey","null");
+        kosullar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTermsPOP();
+            }
+        });
+
 
 
         usernameEdit.addTextChangedListener(new TextWatcher() {
