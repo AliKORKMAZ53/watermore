@@ -51,6 +51,20 @@ public class settings extends AppCompatActivity {
                 constraintLayout.setBackgroundResource(response);
         });
         editor=sharedPreferences.edit();
+        if(sharedPreferences.getInt("applyTheme",R.drawable.backgg)==R.drawable.backgg){
+            tema2.setImageResource(R.drawable.maincircleselected);
+        }else if(sharedPreferences.getInt("applyTheme",R.drawable.ocean)==R.drawable.ocean){
+            tema5.setImageResource(R.drawable.oceancircleselected);
+        }
+        else if(sharedPreferences.getInt("applyTheme",R.drawable.pinkie)==R.drawable.pinkie){
+            tema1.setImageResource(R.drawable.pinkiecircleselected);
+        }else if(sharedPreferences.getInt("applyTheme",R.drawable.volcano)==R.drawable.volcano){
+            tema6.setImageResource(R.drawable.volcanocircleselected);
+        }else if(sharedPreferences.getInt("applyTheme",R.drawable.darkwater)==R.drawable.darkwater){
+            tema3.setImageResource(R.drawable.darkwatercircleselected);
+        }else if(sharedPreferences.getInt("applyTheme",R.drawable.leaf)==R.drawable.leaf){
+            tema4.setImageResource(R.drawable.leafcircleselected);
+        }
 
         tema1=findViewById(R.id.tema1);
         tema2=findViewById(R.id.tema2);

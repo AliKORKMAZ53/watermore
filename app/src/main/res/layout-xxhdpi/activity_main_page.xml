@@ -575,6 +575,6 @@
         app:layout_constraintStart_toStartOf="parent">
 
     </com.google.android.gms.ads.AdView>
-    <!--ADUNITID DEGISECEK SIMDIKI TEST ID -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

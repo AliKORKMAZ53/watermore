@@ -360,9 +360,13 @@ public class ReminderScreen extends AppCompatActivity {
     }
 
     private Notification getNotification(String content) {
+        Intent notificationIntent=new Intent(getApplicationContext(),MainPage.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, default_notification_channel_id);
         builder.setContentTitle("Watermore");
         builder.setContentText(content);
+        builder.setContentIntent(contentIntent);
         builder.setSmallIcon(R.drawable.ic_launcher_foreground);
         builder.setAutoCancel(true);
         builder.setChannelId(Constants.NOTIFICATION_CHANNEL_ID);
